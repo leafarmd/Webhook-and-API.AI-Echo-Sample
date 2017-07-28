@@ -21,14 +21,18 @@ restService.post('/echo', function(req, res) {
       speech = parsed.feed.title;
       parsed.feed.entries.forEach(function(entry) {
         console.log(entry.title + ':' + entry.link);
+
+
       })
+      return res.json({
+          speech: speech,
+          displayText: speech,
+          source: 'webhook-echo-sample'
+      });
+
     })
 
-    return res.json({
-        speech: speech,
-        displayText: speech,
-        source: 'webhook-echo-sample'
-    });
+
 });
 
 restService.post('/slack-test', function(req, res) {
