@@ -13,22 +13,23 @@ restService.use(bodyParser.json());
 
 restService.post('/echo', function(req, res) {
     var speech = req.body.result && req.body.result.parameters && req.body.result.parameters.echoText ? req.body.result.parameters.echoText : "Seems like some problem. Speak again."
-    speech = "rafael"
+
     var parser = require('rss-parser');
 
-    parser.parseURL('https://www.reddit.com/.rss', function(err, parsed) {
+    parser.parseURL('http://pox.globo.com/rss/g1/brasil/', function(err, parsed) {
       console.log(parsed.feed.title);
       speech = parsed.feed.title;
       parsed.feed.entries.forEach(function(entry) {
         console.log(entry.title + ':' + entry.link);
-
+        speech = entry.title;
+        return res.json({
+            speech: speech,
+            displayText: speech,
+            source: 'webhook-echo-sample'
+        });
 
       })
-      return res.json({
-          speech: speech,
-          displayText: speech,
-          source: 'webhook-echo-sample'
-      });
+
 
     })
 
