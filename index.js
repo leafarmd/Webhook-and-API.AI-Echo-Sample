@@ -23,7 +23,7 @@ restService.post('/echo', function(req, res) {
         console.log(entry.title + ':' + entry.link);
         speech = entry.title;
         return res.json({
-            speech: speech,
+            speech: "<speak>Here are <say-as interpret-as="characters">SSML</say-as> samples.</speak>",
             displayText: speech,
             source: 'webhook-echo-sample'
         });
