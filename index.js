@@ -16,12 +16,14 @@ restService.post('/echo', function(req, res) {
 
     var parser = require('rss-parser');
 
-    parser.parseURL('http://pox.globo.com/rss/g1/brasil/', function(err, parsed) {
-      console.log(parsed.feed.title);
-      speech = parsed.feed.title;
-      parsed.feed.entries.forEach(function(entry) {
-        console.log(entry.title + ':' + entry.link);
-        speech = entry.title;
+    speech = "<speak>
+      Here are <say-as interpret-as="characters">SSML</say-as> samples.
+      I can pause <break time="3s"/>.
+      I can play a sound
+      I can also substitute phrases, like the <sub alias="World Wide Web Consortium">W3C</sub>.
+      Finally, I can speak a paragraph with two sentences.
+      <p><s>This is sentence one.</s><s>This is sentence two.</s></p>
+    </speak>"
         return res.json({
             speech: speech,
             displayText: speech,
