@@ -15,15 +15,33 @@ restService.post('/echo', function(req, res) {
   var news = "news";
   var song = "song";
     var speech = req.body.result && req.body.result.parameters && req.body.result.parameters.echoText ? req.body.result.parameters.echoText : "Seems like some problem. Speak again."
+    if(speech.contains(news)){
+      return res.json({
 
+          speech: 'ola',
+          displayText: speech,
+          source: 'webhook-echo-sample'
+      });
+    }
     var parser = require('rss-parser');
 
-    return res.json({
+    parser.parseURL('http://pox.globo.com/rss/g1/brasil/', function(err, parsed) {
+      console.log(parsed.feed.title);
+      speech = parsed.feed.title;
+      parsed.feed.entries.forEach(function(entry) {
+        console.log(entry.title + ':' + entry.link);
+        speech = entry.title;
+        return res.json({
 
-        speech: '<speak> heres a song to you <audio src="https://allthingsaudio.wikispaces.com/file/view/Shuffle%20for%20K.M.mp3/139190697/Shuffle%20for%20K.M.mp3">didnt get your MP3 audio file</audio></speak>',
-        displayText: speech,
-        source: 'webhook-echo-sample'
-    });
+            speech: '<speak> heres a song to you <audio src="https://allthingsaudio.wikispaces.com/file/view/Shuffle%20for%20K.M.mp3/139190697/Shuffle%20for%20K.M.mp3">didnt get your MP3 audio file</audio></speak>',
+            displayText: speech,
+            source: 'webhook-echo-sample'
+        });
+
+      })
+
+
+    })
 
 
 });
