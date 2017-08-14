@@ -15,7 +15,8 @@ restService.post('/echo', function(req, res) {
   var news = "news";
   var song = "song";
     var speech = req.body.result && req.body.result.parameters && req.body.result.parameters.echoText ? req.body.result.parameters.echoText : "Seems like some problem. Speak again."
-    if(speech.contains(news)){
+
+    if(speech.indexOf(news) > -1) {
       return res.json({
 
           speech: 'ola',
@@ -23,6 +24,8 @@ restService.post('/echo', function(req, res) {
           source: 'webhook-echo-sample'
       });
     }
+
+    
     var parser = require('rss-parser');
 
     parser.parseURL('http://pox.globo.com/rss/g1/brasil/', function(err, parsed) {
