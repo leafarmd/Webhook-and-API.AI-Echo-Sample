@@ -26,10 +26,10 @@ restService.post('/echo', function(req, res) {
       });
     }
 
-    if(speech.indexOf(news) > -1) {
+    if(speech.indexOf(song) > -1) {
       return res.json({
 
-          speech: '<speak> heres a song to you <audio src="http://www.hospedariaprovencal.com.br/slap/news.mp3">didnt get your MP3 audio file</audio></speak>',
+          speech: '<speak> heres a song to you <audio src="https://allthingsaudio.wikispaces.com/file/view/Shuffle%20for%20K.M.mp3/139190697/Shuffle%20for%20K.M.mp3">didnt get your MP3 audio file</audio></speak>',
           displayText: speech,
           source: 'webhook-echo-sample'
       });
@@ -45,7 +45,7 @@ restService.post('/echo', function(req, res) {
         speech = entry.title;
         return res.json({
 
-            speech: '<speak> heres a song to you <audio src="https://allthingsaudio.wikispaces.com/file/view/Shuffle%20for%20K.M.mp3/139190697/Shuffle%20for%20K.M.mp3">didnt get your MP3 audio file</audio></speak>',
+            speech: speech,
             displayText: speech,
             source: 'webhook-echo-sample'
         });
