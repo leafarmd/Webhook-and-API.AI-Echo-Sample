@@ -14,18 +14,19 @@ restService.use(bodyParser.json());
 restService.post('/echo', function(req, res) {
   var news = "news";
   var song = "song";
+  var song = "ubilab";
     var speech = req.body.result && req.body.result.parameters && req.body.result.parameters.echoText ? req.body.result.parameters.echoText : "Seems like some problem. Speak again."
 
-    if(speech.indexOf(news) > -1) {
+    if(speech.indexOf(ubilab) > -1) {
       return res.json({
 
-          speech: 'ola',
+          speech: 'Ubilab is a place for academic research which connects theoretical references with their practical application. The lab was created in the Graduate Program of Communications of the Pontifical Catholic University of Rio Grande do Sul (PUCRS) to create a multidisciplinary dialogue to research new perspectives of the Information Society.',
           displayText: speech,
           source: 'webhook-echo-sample'
       });
     }
 
-    
+
     var parser = require('rss-parser');
 
     parser.parseURL('http://pox.globo.com/rss/g1/brasil/', function(err, parsed) {
