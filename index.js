@@ -26,7 +26,7 @@ restService.post('/echo', function(req, res) {
       });
     }
 
-    if(speech.indexOf(ubilab) > -1) {
+    if(speech.indexOf(news) > -1) {
       return res.json({
 
           speech: '<speak> heres a song to you <audio src="http://www.hospedariaprovencal.com.br/slap/news.mp3">didnt get your MP3 audio file</audio></speak>',
