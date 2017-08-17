@@ -10,7 +10,7 @@ restService.use(bodyParser.urlencoded({
 }));
 
 restService.use(bodyParser.json());
-
+ 
 restService.post('/echo', function(req, res) {
   var news = "news";
   var song = "song";
@@ -44,7 +44,7 @@ restService.post('/echo', function(req, res) {
         console.log(entry.title + ':' + entry.link);
         speech = entry.title;
         return res.json({
- 
+
             speech: speech,
             displayText: speech,
             source: 'webhook-echo-sample'
