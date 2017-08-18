@@ -38,10 +38,8 @@ restService.post('/echo', function(req, res) {
     var parser = require('rss-parser');
 
     parser.parseURL('http://pox.globo.com/rss/g1/brasil/', function(err, parsed) {
-      console.log(parsed.feed.title);
       speech = parsed.feed.title;
       parsed.feed.entries.forEach(function(entry) {
-        console.log(entry.title + ':' + entry.link);
         speech = entry.title;
         return res.json({
             speech: speech,
