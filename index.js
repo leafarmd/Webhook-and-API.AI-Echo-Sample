@@ -15,7 +15,7 @@ restService.post('/echo', function(req, res) {
   var news = "news";
   var song = "song";
   var ubilab = "ubilab";
-    var speech = req.body.result && req.body.result.parameters && req.body.result.parameters.echoText ? req.body.result.parameters.address : "Seems like some problem. Speak again."
+    var speech = req.body.result && req.body.result.parameters && req.body.result.parameters.echoText ? req.body.result.parameters.echoText : "Seems like some problem. Speak again."
 
     if(speech.indexOf(ubilab) > -1) {
       return res.json({
