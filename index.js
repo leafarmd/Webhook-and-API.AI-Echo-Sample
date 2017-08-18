@@ -37,7 +37,7 @@ restService.post('/echo', function(req, res) {
 
     var parser = require('rss-parser');
 
-    parser.parseURL('http://pox.globo.com/rss/g1/brasil/', function(err, parsed) {
+    parser.parseURL('http://rss.cnn.com/rss/edition.rss', function(err, parsed) {
       speech = parsed.feed.title;
       parsed.feed.entries.forEach(function(entry) {
         speech = entry.title;
