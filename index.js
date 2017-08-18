@@ -38,15 +38,13 @@ restService.post('/echo', function(req, res) {
     var parser = require('rss-parser');
 
     parser.parseURL('http://rss.cnn.com/rss/edition.rss', function(err, parsed) {
-      speech = parsed.feed.title;
-      parsed.feed.entries.forEach(function(entry) {
-        speech = entry.title;
-        return res.json({
-            speech: speech,
-            displayText: speech,
-            source: 'webhook-echo-sample'
-        });
+      
 
+      speech = parsed.feed.entries[0].title;
+      return res.json({
+          speech: speech,
+          displayText: speech,
+          source: 'webhook-echo-sample'
       });
 
 
