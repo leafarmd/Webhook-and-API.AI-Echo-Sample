@@ -15,7 +15,6 @@ restService.post('/echo', function(req, res) {
   var news = "news";
   var song = "song";
   var ubilab = "ubilab";
-  var feed = require("feed-read-parser");
     var speech = req.body.result && req.body.result.parameters && req.body.result.parameters.echoText ? req.body.result.parameters.echoText : "Seems like some problem. Speak again."
 
     if(speech.indexOf(ubilab) > -1) {
@@ -35,14 +34,25 @@ restService.post('/echo', function(req, res) {
           source: 'webhook-echo-sample'
       });
     }
-    feed('http://pox.globo.com/rss/g1/brasil/', function(err, articles) {
-  if (err) throw err;
+
+    var parser = require('rss-parser');
+
+    parser.parseURL('http://pox.globo.com/rss/g1/brasil/', function(err, parsed) {
+      console.log(parsed.feed.title);
+      speech = parsed.feed.title;
+      parsed.feed.entries.forEach(function(entry) {
+        console.log(entry.title + ':' + entry.link);
+        speech = entry.title;
+        return res.json({
+            speech: speech,
+            displayText: speech,
+            source: 'webhook-echo-sample'
+        });
+
+      })
 
 
-  });
-
-
-
+    })
 
 
 });
