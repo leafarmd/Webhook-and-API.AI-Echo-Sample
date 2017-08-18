@@ -35,7 +35,7 @@ restService.post('/echo', function(req, res) {
           source: 'webhook-echo-sample'
       });
     }
-    feed('http://pox.globo.com/rss/g1/brasil/'', function(err, articles) {
+    feed('http://pox.globo.com/rss/g1/brasil/', function(err, articles) {
   if (err) throw err;
 
 
