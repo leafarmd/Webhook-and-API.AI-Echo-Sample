@@ -37,7 +37,7 @@ restService.post('/echo', function(req, res) {
     }
     feed("http://pox.globo.com/rss/g1/brasil/", function(err, articles) {
   if (err) throw err;
-  articles[0].title;
+  
   speech = articles[0].title;
   return res.json({
       speech: speech,
@@ -48,7 +48,7 @@ restService.post('/echo', function(req, res) {
   });
     var parser = require('rss-parser');
 
-    
+
 
 
 });
