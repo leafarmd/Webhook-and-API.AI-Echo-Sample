@@ -15,7 +15,7 @@ restService.post('/echo', function(req, res) {
   var news = "news";
   var song = "song";
   var ubilab = "ubilab";
-    var speech = req.body.result && req.body.result.parameters && req.body.result.parameters.echoGeo ? req.body.result.parameters.echoGeo : "Seems like some problem. Speak again."
+    var speech = req.body.result && req.body.result.parameters && req.body.result.parameters.echoText ? req.body.result.parameters.echoText : "Seems like some problem. Speak again."
 
     if(speech.indexOf(ubilab) > -1) {
       return res.json({
@@ -40,7 +40,7 @@ restService.post('/echo', function(req, res) {
     parser.parseURL('http://rss.cnn.com/rss/edition.rss', function(err, parsed) {
 
 
-      //speech = parsed.feed.entries[0].title;
+      speech = parsed.feed.entries[0].title;
       return res.json({
           speech: speech,
           displayText: speech,
