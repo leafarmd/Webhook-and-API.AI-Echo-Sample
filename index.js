@@ -48,13 +48,6 @@ restService.post('/echo', function(req, res) {
         });
       });
     }
-    speech = "Can't help you with that"
-    return res.json({
-        speech: speech,
-        displayText: speech,
-        source: 'webhook-echo-sample'
-    });
-
 
 
 });
