@@ -38,9 +38,7 @@ restService.post('/echo', function(req, res) {
       var parser = require('rss-parser');
       parser.parseURL('http://rss.cnn.com/rss/edition.rss', function(err, parsed) {
 
-        speech = parsed.feed.entries[0].title;
-
-        for(var i = 1; i < 4;i++){
+        for(var i = 0; i < 4;i++){
         speech = speech + "\n" +   parsed.feed.entries[i].title;
         }
         return res.json({
