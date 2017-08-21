@@ -43,15 +43,20 @@ restService.post('/echo', function(req, res) {
         for(var i = 1; i < 4;i++){
         speech = speech + "\n" +   parsed.feed.entries[i].title;
         }
-
+        return res.json({
+            speech: speech,
+            displayText: speech,
+            source: 'webhook-echo-sample'
+        });
       });
     }
-
+    speech = "Can't help you with that"
     return res.json({
         speech: speech,
         displayText: speech,
         source: 'webhook-echo-sample'
     });
+
 
 
 });
