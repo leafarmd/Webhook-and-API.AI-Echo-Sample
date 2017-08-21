@@ -44,16 +44,14 @@ restService.post('/echo', function(req, res) {
         speech = speech + "\n" +   parsed.feed.entries[i].title;
         }
 
-
-        return res.json({
-            speech: speech,
-            displayText: speech,
-            source: 'webhook-echo-sample'
-        });
       });
     }
 
-
+    return res.json({
+        speech: speech,
+        displayText: speech,
+        source: 'webhook-echo-sample'
+    });
 
 
 });
