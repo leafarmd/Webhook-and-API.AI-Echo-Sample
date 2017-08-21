@@ -19,7 +19,6 @@ restService.post('/echo', function(req, res) {
 
     if(speech.indexOf(ubilab) > -1) {
       return res.json({
-
           speech: 'Ubilab is a place for academic research which connects theoretical references with their practical application. The lab was created in the Graduate Program of Communications of the Pontifical Catholic University of Rio Grande do Sul (PUCRS) to create a multidisciplinary dialogue to research new perspectives of the Information Society.',
           displayText: speech,
           source: 'webhook-echo-sample'
@@ -28,27 +27,26 @@ restService.post('/echo', function(req, res) {
 
     if(speech.indexOf(song) > -1) {
       return res.json({
-
           speech: '<speak> here\'s a song to you <audio src="https://allthingsaudio.wikispaces.com/file/view/Shuffle%20for%20K.M.mp3/139190697/Shuffle%20for%20K.M.mp3">didnt get your MP3 audio file</audio></speak>',
           displayText: speech,
           source: 'webhook-echo-sample'
       });
     }
 
-    var parser = require('rss-parser');
 
-    parser.parseURL('http://rss.cnn.com/rss/edition.rss', function(err, parsed) {
-
-
-      speech = parsed.feed.entries[0].title;
-      return res.json({
-          speech: speech,
-          displayText: speech,
-          source: 'webhook-echo-sample'
+    if(speech.indexOf(news) > -1) {
+      var parser = require('rss-parser');
+      parser.parseURL('http://rss.cnn.com/rss/edition.rss', function(err, parsed) {
+        speech = parsed.feed.entries[0].title;
+        return res.json({
+            speech: speech,
+            displayText: speech,
+            source: 'webhook-echo-sample'
+        });
       });
+    }
 
 
-    });
 
 
 });
