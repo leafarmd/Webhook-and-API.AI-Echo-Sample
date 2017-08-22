@@ -15,10 +15,10 @@ restService.post('/echo', function(req, res) {
   var news = "news";
   var song = "song";
   var ubilab = "ubilab";
-    var speech = req.body.result && req.body.result.parameters && req.body.result.parameters.echoText ? req.body.result.parameters.originalRequest.device.location.city : "Seems like some problem. Speak again."
-
+    var speech = req.body.result && req.body.result.parameters && req.body.result.parameters.echoText ? req.body.result.parameters.echoText : "Seems like some problem. Speak again."
+    var txt = JSON.stringify(req.body);
     return res.json({
-        speech: speech,
+        speech: txt,
         displayText: speech,
         source: 'webhook-echo-sample'
     });
