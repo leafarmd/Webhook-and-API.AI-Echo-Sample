@@ -15,9 +15,7 @@ restService.post('/echo', function(req, res) {
   var news = "news";
   var song = "song";
   var ubilab = "ubilab";
-    var speech = req.body.result && req.body.result.parameters && req.body.result.parameters.echoText ? req.body.result.parameters.city : "Seems like some problem. Speak again."
-console.log("aaaaaaaa");
-    console.log(req.body.result.parameters);
+    var speech = req.body.result && req.body.result.parameters && req.body.result.parameters.echoText ? req.body.result.parameters.echoGeo : "Seems like some problem. Speak again."
     return res.json({
         speech: speech,
         displayText: speech,
