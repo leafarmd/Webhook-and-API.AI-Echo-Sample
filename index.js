@@ -19,7 +19,7 @@ restService.post('/echo', function(req, res) {
   var news = "news";
   var science = "science";
   var economy = "economy";
-  var education = "education":
+  var education = "education";
   var world = "world";
   var music = "music";
   var politics = "politics";
@@ -86,6 +86,7 @@ restService.post('/echo', function(req, res) {
         });
       });
     }else
+
 
     if(speech.indexOf(news) > -1) {
       var parser = require('rss-parser');
