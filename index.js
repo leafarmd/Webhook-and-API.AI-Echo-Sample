@@ -228,7 +228,7 @@ if(speech.indexOf(rs) > -1) {
 
     if(speech.indexOf(news) > -1) {
       var parser = require('rss-parser');
-      parser.parseURL('http://rss.cnn.com/rss/edition.rss', function(err, parsed) {
+      parser.parseURL('http://g1.globo.com/dynamo/rss2.xml', function(err, parsed) {
         var speechNews = "";
         for(var i = 0; i < 4;i++){
         speechNews = speechNews + "\n" +   parsed.feed.entries[i].title;
