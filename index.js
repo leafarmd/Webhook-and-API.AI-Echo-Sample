@@ -4,7 +4,7 @@ const express = require('express');
 const bodyParser = require('body-parser');
 
 const restService = express();
-var cont = 0;
+
 restService.use(bodyParser.urlencoded({
     extended: true
 }));
@@ -12,30 +12,17 @@ restService.use(bodyParser.urlencoded({
 restService.use(bodyParser.json());
 
 restService.post('/echo', function(req, res) {
-
-  //news sections
   var news = "news";
   var song = "song";
   var ubilab = "ubilab";
-  var science = "science";
-  var economy = "economy";
-  var education = "education":
-  var world = "world";
-  var music = "music";
-  var politics = "politics";
   var technology = "technology";
-
-  //regions
-  var sp = "são paulo";
-  var rj = "rio de janeiro";
-  var rs - "rio grande do sul";
+  var economy = "economy";
 
     var speech = req.body.result && req.body.result.parameters && req.body.result.parameters.echoText ? req.body.result.parameters.echoText : "Seems like some problem. Speak again."
 
     // var txt = JSON.stringify(req.body);
-    // cont = cont + 1;
     // return res.json({
-    //     speech: cont,
+    //     speech: txt,
     //     displayText: speech,
     //     source: 'webhook-echo-sample'
     // });
@@ -101,8 +88,6 @@ restService.post('/echo', function(req, res) {
         });
       });
     }
-
-
 
 
 });
