@@ -12,21 +12,33 @@ restService.use(bodyParser.urlencoded({
 restService.use(bodyParser.json());
 
 restService.post('/echo', function(req, res) {
+
+  //news sections
   var news = "news";
   var song = "song";
   var ubilab = "ubilab";
-  var technology = "technology";
+  var science = "science";
   var economy = "economy";
+  var education = "education":
+  var world = "world";
+  var music = "music";
+  var politics = "politics";
+  var technology = "technology";
+
+  //regions
+  var sp = "são paulo";
+  var rj = "rio de janeiro";
+  var rs - "rio grande do sul";
 
     var speech = req.body.result && req.body.result.parameters && req.body.result.parameters.echoText ? req.body.result.parameters.echoText : "Seems like some problem. Speak again."
 
-    var txt = JSON.stringify(req.body);
-    cont = cont + 1;
-    return res.json({
-        speech: cont,
-        displayText: speech,
-        source: 'webhook-echo-sample'
-    });
+    // var txt = JSON.stringify(req.body);
+    // cont = cont + 1;
+    // return res.json({
+    //     speech: cont,
+    //     displayText: speech,
+    //     source: 'webhook-echo-sample'
+    // });
 
     if(speech.indexOf(ubilab) > -1) {
       return res.json({
@@ -63,6 +75,158 @@ restService.post('/echo', function(req, res) {
     if(speech.indexOf(economy) > -1) {
       var parser = require('rss-parser');
       parser.parseURL('  http://g1.globo.com/dynamo/economia/rss2.xml', function(err, parsed) {
+        var speechNews = "";
+        for(var i = 0; i < 4;i++){
+        speechNews = speechNews + "\n" +   parsed.feed.entries[i].title;
+        }
+        return res.json({
+            speech: speechNews,
+            displayText: speech,
+            source: 'webhook-echo-sample'
+        });
+      });
+    }else
+
+    if(speech.indexOf(science) > -1) {
+      var parser = require('rss-parser');
+      parser.parseURL('http://g1.globo.com/dynamo/ciencia-e-saude/rss2.xml', function(err, parsed) {
+        var speechNews = "";
+        for(var i = 0; i < 4;i++){
+        speechNews = speechNews + "\n" +   parsed.feed.entries[i].title;
+        }
+        return res.json({
+            speech: speechNews,
+            displayText: speech,
+            source: 'webhook-echo-sample'
+        });
+      });
+    }else
+
+    if(speech.indexOf(education) > -1) {
+      var parser = require('rss-parser');
+      parser.parseURL('http://g1.globo.com/dynamo/educacao/rss2.xml', function(err, parsed) {
+        var speechNews = "";
+        for(var i = 0; i < 4;i++){
+        speechNews = speechNews + "\n" +   parsed.feed.entries[i].title;
+        }
+        return res.json({
+            speech: speechNews,
+            displayText: speech,
+            source: 'webhook-echo-sample'
+        });
+      });
+    }else
+
+    if(speech.indexOf(world) > -1) {
+      var parser = require('rss-parser');
+      parser.parseURL('http://g1.globo.com/dynamo/mundo/rss2.xml', function(err, parsed) {
+        var speechNews = "";
+        for(var i = 0; i < 4;i++){
+        speechNews = speechNews + "\n" +   parsed.feed.entries[i].title;
+        }
+        return res.json({
+            speech: speechNews,
+            displayText: speech,
+            source: 'webhook-echo-sample'
+        });
+      });
+    }else
+
+    if(speech.indexOf(music) > -1) {
+      var parser = require('rss-parser');
+      parser.parseURL('http://g1.globo.com/dynamo/musica/rss2.xml', function(err, parsed) {
+        var speechNews = "";
+        for(var i = 0; i < 4;i++){
+        speechNews = speechNews + "\n" +   parsed.feed.entries[i].title;
+        }
+        return res.json({
+            speech: speechNews,
+            displayText: speech,
+            source: 'webhook-echo-sample'
+        });
+      });
+    }else
+
+    if(speech.indexOf(science) > -1) {
+      var parser = require('rss-parser');
+      parser.parseURL('http://g1.globo.com/dynamo/ciencia-e-saude/rss2.xml', function(err, parsed) {
+        var speechNews = "";
+        for(var i = 0; i < 4;i++){
+        speechNews = speechNews + "\n" +   parsed.feed.entries[i].title;
+        }
+        return res.json({
+            speech: speechNews,
+            displayText: speech,
+            source: 'webhook-echo-sample'
+        });
+      });
+    }else
+
+    if(speech.indexOf(politics) > -1) {
+      var parser = require('rss-parser');
+      parser.parseURL('http://g1.globo.com/dynamo/politica/mensalao/rss2.xml', function(err, parsed) {
+        var speechNews = "";
+        for(var i = 0; i < 4;i++){
+        speechNews = speechNews + "\n" +   parsed.feed.entries[i].title;
+        }
+        return res.json({
+            speech: speechNews,
+            displayText: speech,
+            source: 'webhook-echo-sample'
+        });
+      });
+    }else
+
+    if(speech.indexOf(technology) > -1) {
+      var parser = require('rss-parser');
+      parser.parseURL('http://g1.globo.com/dynamo/tecnologia/rss2.xml', function(err, parsed) {
+        var speechNews = "";
+        for(var i = 0; i < 4;i++){
+        speechNews = speechNews + "\n" +   parsed.feed.entries[i].title;
+        }
+        return res.json({
+            speech: speechNews,
+            displayText: speech,
+            source: 'webhook-echo-sample'
+        });
+      });
+    }else
+
+    //regions
+
+    if(speech.indexOf(sp) > -1) {
+      var parser = require('rss-parser');
+      parser.parseURL('http://g1.globo.com/dynamo/sao-paulo/rss2.xml', function(err, parsed) {
+        var speechNews = "";
+        for(var i = 0; i < 4;i++){
+        speechNews = speechNews + "\n" +   parsed.feed.entries[i].title;
+        }
+        return res.json({
+            speech: speechNews,
+            displayText: speech,
+            source: 'webhook-echo-sample'
+        });
+      });
+    }else
+
+    if(speech.indexOf(rj) > -1) {
+      var parser = require('rss-parser');
+      parser.parseURL('http://g1.globo.com/dynamo/rio-de-janeiro/rss2.xml', function(err, parsed) {
+        var speechNews = "";
+        for(var i = 0; i < 4;i++){
+        speechNews = speechNews + "\n" +   parsed.feed.entries[i].title;
+        }
+        return res.json({
+            speech: speechNews,
+            displayText: speech,
+            source: 'webhook-echo-sample'
+        });
+      });
+    }else
+
+    if(speech.indexOf(rs) > -1) {
+      var parser = require('rss-parser');
+      parser.parseURL('http://g1.globo.com/dynamo/rs/rio-grande-do-sul/rss2.xml', function(err, parsed) {
         var speechNews = "";
         for(var i = 0; i < 4;i++){
         speechNews = speechNews + "\n" +   parsed.feed.entries[i].title;
