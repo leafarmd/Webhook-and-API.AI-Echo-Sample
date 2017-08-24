@@ -17,15 +17,16 @@ restService.post('/echo', function(req, res) {
   var ubilab = "ubilab";
   var technology = "technology";
   var economy = "economy";
-
+  var cont = 0;
     var speech = req.body.result && req.body.result.parameters && req.body.result.parameters.echoText ? req.body.result.parameters.echoText : "Seems like some problem. Speak again."
 
-    // var txt = JSON.stringify(req.body);
-    // return res.json({
-    //     speech: txt,
-    //     displayText: speech,
-    //     source: 'webhook-echo-sample'
-    // });
+    var txt = JSON.stringify(req.body);
+    cont = cont + 1;
+    return res.json({
+        speech: cont,
+        displayText: speech,
+        source: 'webhook-echo-sample'
+    });
 
     if(speech.indexOf(ubilab) > -1) {
       return res.json({
@@ -76,7 +77,7 @@ restService.post('/echo', function(req, res) {
 
     if(speech.indexOf(news) > -1) {
       var parser = require('rss-parser');
-      parser.parseURL('http://rss.cnn.com/rss/edition.rss', function(err, parsed) {
+      parser.parseURL(' http://g1.globo.com/dynamo/rss2.xml', function(err, parsed) {
         var speechNews = "";
         for(var i = 0; i < 4;i++){
         speechNews = speechNews + "\n" +   parsed.feed.entries[i].title;
