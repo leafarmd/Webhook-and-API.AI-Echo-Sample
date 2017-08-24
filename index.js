@@ -59,7 +59,7 @@ restService.post('/echo', function(req, res) {
 
     if(speech.indexOf(technology) > -1) {
       var parser = require('rss-parser');
-      parser.parseURL(' http://g1.globo.com/dynamo/tecnologia/rss2.xml', function(err, parsed) {
+      parser.parseURL('http://g1.globo.com/dynamo/tecnologia/rss2.xml', function(err, parsed) {
         var speechNews = "";
         for(var i = 0; i < 4;i++){
         speechNews = speechNews + "\n" +   parsed.feed.entries[i].title;
@@ -74,7 +74,7 @@ restService.post('/echo', function(req, res) {
 
     if(speech.indexOf(economy) > -1) {
       var parser = require('rss-parser');
-      parser.parseURL('  http://g1.globo.com/dynamo/economia/rss2.xml', function(err, parsed) {
+      parser.parseURL('http://g1.globo.com/dynamo/economia/rss2.xml', function(err, parsed) {
         var speechNews = "";
         for(var i = 0; i < 4;i++){
         speechNews = speechNews + "\n" +   parsed.feed.entries[i].title;
