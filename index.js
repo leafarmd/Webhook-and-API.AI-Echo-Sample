@@ -49,7 +49,7 @@ restService.post('/echo', function(req, res) {
         speechNews = speechNews + "\n" +   parsed.feed.entries[i].title;
         }
         return res.json({
-            speech: speech,
+            speech: speechNews,
             displayText: speech,
             source: 'webhook-echo-sample'
         });
