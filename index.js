@@ -46,7 +46,7 @@ restService.post('/echo', function(req, res) {
           displayText: speech,
           source: 'webhook-echo-sample'
       });
-    }else
+    }
 
     if(speech.indexOf(song) > -1) {
       return res.json({
@@ -54,7 +54,7 @@ restService.post('/echo', function(req, res) {
           displayText: speech,
           source: 'webhook-echo-sample'
       });
-    }else
+    }
 
 
     if(speech.indexOf(technology) > -1) {
@@ -70,7 +70,7 @@ restService.post('/echo', function(req, res) {
             source: 'webhook-echo-sample'
         });
       });
-    }else
+    }
 
     if(speech.indexOf(economy) > -1) {
       var parser = require('rss-parser');
@@ -85,7 +85,7 @@ restService.post('/echo', function(req, res) {
             source: 'webhook-echo-sample'
         });
       });
-    }else
+    }
 
     if(speech.indexOf(science) > -1) {
       var parser = require('rss-parser');
@@ -100,7 +100,7 @@ restService.post('/echo', function(req, res) {
             source: 'webhook-echo-sample'
         });
       });
-    }else
+    }
 
     if(speech.indexOf(education) > -1) {
       var parser = require('rss-parser');
@@ -115,7 +115,7 @@ restService.post('/echo', function(req, res) {
             source: 'webhook-echo-sample'
         });
       });
-    }else
+    }
 
     if(speech.indexOf(world) > -1) {
       var parser = require('rss-parser');
@@ -130,7 +130,7 @@ restService.post('/echo', function(req, res) {
             source: 'webhook-echo-sample'
         });
       });
-    }else
+    }
 
     if(speech.indexOf(music) > -1) {
       var parser = require('rss-parser');
@@ -145,7 +145,7 @@ restService.post('/echo', function(req, res) {
             source: 'webhook-echo-sample'
         });
       });
-    }else
+    }
 
     if(speech.indexOf(science) > -1) {
       var parser = require('rss-parser');
@@ -160,7 +160,7 @@ restService.post('/echo', function(req, res) {
             source: 'webhook-echo-sample'
         });
       });
-    }else
+    }
 
     if(speech.indexOf(politics) > -1) {
       var parser = require('rss-parser');
@@ -175,7 +175,7 @@ restService.post('/echo', function(req, res) {
             source: 'webhook-echo-sample'
         });
       });
-    }else
+    }
 
     if(speech.indexOf(technology) > -1) {
       var parser = require('rss-parser');
@@ -190,7 +190,7 @@ restService.post('/echo', function(req, res) {
             source: 'webhook-echo-sample'
         });
       });
-    }else
+    }
 
     //regions
 
@@ -207,7 +207,7 @@ restService.post('/echo', function(req, res) {
             source: 'webhook-echo-sample'
         });
       });
-    }else
+    }
 
     if(speech.indexOf(rj) > -1) {
       var parser = require('rss-parser');
@@ -222,7 +222,7 @@ restService.post('/echo', function(req, res) {
             source: 'webhook-echo-sample'
         });
       });
-    }else
+    }
 
     if(speech.indexOf(rs) > -1) {
       var parser = require('rss-parser');
@@ -237,11 +237,11 @@ restService.post('/echo', function(req, res) {
             source: 'webhook-echo-sample'
         });
       });
-    }else
+    }
 
     if(speech.indexOf(news) > -1) {
       var parser = require('rss-parser');
-      parser.parseURL(' http://g1.globo.com/dynamo/rss2.xml', function(err, parsed) {
+      parser.parseURL('http://g1.globo.com/dynamo/rss2.xml', function(err, parsed) {
         var speechNews = "";
         for(var i = 0; i < 4;i++){
         speechNews = speechNews + "\n" +   parsed.feed.entries[i].title;
