@@ -30,7 +30,7 @@ restService.post('/echo', function(req, res) {
   var music = "music";
   var politics = "politics";
   var technology = "technology";
-
+  var feed{news:"http://g1.globo.com/dynamo/rss2.xml"};
   //regions
 
   var sp = "sao paulo";
@@ -47,11 +47,11 @@ restService.post('/echo', function(req, res) {
     // });
 
     if(speech.indexOf(ubilab) > -1) {
-      assistant.ask('Ubilab is a place for academic research which connects theoretical references with their practical application. The lab was created in the Graduate Program of Communications of the Pontifical Catholic University of Rio Grande do Sul (PUCRS) to create a multidisciplinary dialogue to research new perspectives of the Information Society.');
+      sendResponse('<speak>Ubilab is a place for academic research which connects theoretical references with their practical application. The lab was created in the Graduate Program of Communications of the Pontifical Catholic University of Rio Grande do Sul (PUCRS) to create a multidisciplinary dialogue to research new perspectives of the Information Society.</speak>');
     }else
 
     if(speech.indexOf(song) > -1) {
-      assistant.ask('<speak> here\'s a song to you <audio src="https://leafarmd.000webhostapp.com/news.mp3">didnt get your MP3 audio file</audio></speak>')
+      sendResponse('<speak> here\'s a song to you <audio src="https://leafarmd.000webhostapp.com/news.mp3">didnt get your MP3 audio file</audio></speak>')
     }else
 
 
@@ -226,7 +226,7 @@ if(speech.indexOf(rs) > -1) {
 
     if(speech.indexOf(news) > -1) {
       var parser = require('rss-parser');
-      parser.parseURL('http://g1.globo.com/dynamo/rss2.xml', function(err, parsed) {
+      parser.parseURL(feed.news, function(err, parsed) {
         var speechNews = "";
         for(var i = 0; i < 4;i++){
         speechNews = parsed.feed.entries[i].title + ".\n" + speechNews;
@@ -236,11 +236,7 @@ if(speech.indexOf(rs) > -1) {
     }
 
     function sendResponse(msg) {
-      return res.json({
-          speech: msg,
-          displayText: msg,
-          source: 'webhook-echo-sample'
-      });
+      assistant.ask(msg);
     }
 
 });
