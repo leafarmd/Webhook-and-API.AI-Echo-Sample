@@ -11,14 +11,6 @@ restService.use(bodyParser.urlencoded({
 
 restService.use(bodyParser.json());
 
-function sendResponse(msg) {
-  return res.json({
-      speech: msg,
-      displayText: msg,
-      source: 'webhook-echo-sample'
-  });
-};
-
 restService.post('/echo', function(req, res) {
 
   var song = "song";
@@ -49,7 +41,7 @@ restService.post('/echo', function(req, res) {
     // });
 
     if(speech.indexOf(ubilab) > -1) {
-      sendResponse('Ubilab is a place for academic research which connects theoretical references with their practical application. The lab was created in the Graduate Program of Communications of the Pontifical Catholic University of Rio Grande do Sul (PUCRS) to create a multidisciplinary dialogue to research new perspectives of the Information Society.')
+      sendResponse('Ubilab is a place for academic research which connects theoretical references with their practical application. The lab was created in the Graduate Program of Communications of the Pontifical Catholic University of Rio Grande do Sul (PUCRS) to create a multidisciplinary dialogue to research new perspectives of the Information Society.');
     }else
 
     if(speech.indexOf(song) > -1) {
@@ -247,6 +239,14 @@ if(speech.indexOf(rs) > -1) {
 
 
 });
+
+function sendResponse(msg) {
+  return res.json({
+      speech: msg,
+      displayText: msg,
+      source: 'webhook-echo-sample'
+  });
+}
 
 restService.post('/slack-test', function(req, res) {
 
