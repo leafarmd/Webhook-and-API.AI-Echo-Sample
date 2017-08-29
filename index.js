@@ -240,13 +240,7 @@ if(speech.indexOf(rs) > -1) {
 
 });
 
-function sendResponse(msg) {
-  return res.json({
-      speech: msg,
-      displayText: msg,
-      source: 'webhook-echo-sample'
-  });
-}
+
 
 restService.post('/slack-test', function(req, res) {
 
@@ -309,3 +303,11 @@ restService.post('/slack-test', function(req, res) {
 restService.listen((process.env.PORT || 8000), function() {
     console.log("Server up and listening");
 });
+
+function sendResponse(msg) {
+  return res.json({
+      speech: msg,
+      displayText: msg,
+      source: 'webhook-echo-sample'
+  });
+}
