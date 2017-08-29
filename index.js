@@ -15,8 +15,8 @@ restService.use(bodyParser.json());
 restService.post('/echo', function(req, res) {
 
   const assistant = new Assistant({ request: req, response: res });
-
-   assistant.ask("Sorry, I was unable to load bus information. Please try again.");
+  var teste = assistant.getArgument('echoText');
+   assistant.ask("test " + teste);
 
   var song = "song";
   var ubilab = "ubilab";
