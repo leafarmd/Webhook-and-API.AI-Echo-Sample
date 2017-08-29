@@ -227,7 +227,7 @@ if(speech.indexOf(rs) > -1) {
       parser.parseURL('http://g1.globo.com/dynamo/rss2.xml', function(err, parsed) {
         var speechNews = "";
         for(var i = 0; i < 4;i++){
-        speechNews = parsed.feed.entries[i].title + ".\n" + speechNews   ;
+        speechNews = parsed.feed.entries[i].title + ".\n" + speechNews;
         }
         sendResponse(speechNews);
       });
