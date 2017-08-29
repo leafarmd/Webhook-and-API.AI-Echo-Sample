@@ -229,13 +229,10 @@ if(speech.indexOf(rs) > -1) {
         for(var i = 0; i < 4;i++){
         speechNews = speechNews + "\n" +   parsed.feed.entries[i].title;
         }
-        return res.json({
-            speech: speechNews,
-            displayText: speech,
-            source: 'webhook-echo-sample'
-        });
+        sendResponse(speechNews);
       });
     }
+
     function sendResponse(msg) {
       return res.json({
           speech: msg,
