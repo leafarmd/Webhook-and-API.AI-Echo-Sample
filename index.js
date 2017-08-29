@@ -4,7 +4,8 @@ const express = require('express');
 const bodyParser = require('body-parser');
 
 const restService = express();
-
+process.env.DEBUG = 'actions-on-google:*';
+const Assistant = require('actions-on-google').ApiAiAssistant;
 restService.use(bodyParser.urlencoded({
     extended: true
 }));
@@ -12,6 +13,10 @@ restService.use(bodyParser.urlencoded({
 restService.use(bodyParser.json());
 
 restService.post('/echo', function(req, res) {
+
+  const assistant = new Assistant({ request: req, response: res });
+
+   assistant.ask("Sorry, I was unable to load bus information. Please try again.");
 
   var song = "song";
   var ubilab = "ubilab";
