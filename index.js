@@ -16,7 +16,7 @@ restService.post('/echo', function(req, res) {
 
   const assistant = new Assistant({ request: req, response: res });
 
-   assistant.ask("Sorry, I was unable to load bus information. Please try again.")
+   assistant.ask("Sorry, I was unable to load bus information. Please try again.");
 
   var song = "song";
   var ubilab = "ubilab";
