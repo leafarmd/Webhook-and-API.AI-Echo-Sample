@@ -30,7 +30,6 @@ restService.post('/echo', function(req, res) {
   var music = "music";
   var politics = "politics";
   var technology = "technology";
-  var feed{news:"http://g1.globo.com/dynamo/rss2.xml"};
   //regions
 
   var sp = "sao paulo";
@@ -40,11 +39,6 @@ restService.post('/echo', function(req, res) {
     var speech = req.body.result && req.body.result.parameters && req.body.result.parameters.echoText ? req.body.result.parameters.echoText : "Seems like some problem. Speak again."
 
     // var txt = JSON.stringify(req.body);
-    // return res.json({
-    //     speech: txt,
-    //     displayText: speech,
-    //     source: 'webhook-echo-sample'
-    // });
 
     if(speech.indexOf(ubilab) > -1) {
       sendResponse('<speak>Ubilab is a place for academic research which connects theoretical references with their practical application. The lab was created in the Graduate Program of Communications of the Pontifical Catholic University of Rio Grande do Sul (PUCRS) to create a multidisciplinary dialogue to research new perspectives of the Information Society.</speak>');
@@ -226,7 +220,7 @@ if(speech.indexOf(rs) > -1) {
 
     if(speech.indexOf(news) > -1) {
       var parser = require('rss-parser');
-      parser.parseURL(feed.news, function(err, parsed) {
+      parser.parseURL('http://g1.globo.com/dynamo/rss2.xml', function(err, parsed) {
         var speechNews = "";
         for(var i = 0; i < 4;i++){
         speechNews = parsed.feed.entries[i].title + ".\n" + speechNews;
