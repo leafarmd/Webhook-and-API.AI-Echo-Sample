@@ -10,13 +10,14 @@ restService.use(bodyParser.urlencoded({
 }));
 
 restService.use(bodyParser.json());
+
 function sendResponse(msg) {
   return res.json({
       speech: msg,
       displayText: msg,
       source: 'webhook-echo-sample'
   });
-}
+};
 
 restService.post('/echo', function(req, res) {
 
