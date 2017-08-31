@@ -40,7 +40,7 @@ restService.post('/echo', function(req, res) {
 
     // var txt = JSON.stringify(req.body);
 
-    if(speech.indexOf(ubilab) > -1) {
+    if(message.indexOf(ubilab) > -1) {
       sendResponse('<speak>Ubilab is a place for academic research which connects theoretical references with their practical application. The lab was created in the Graduate Program of Communications of the Pontifical Catholic University of Rio Grande do Sul (PUCRS) to create a multidisciplinary dialogue to research new perspectives of the Information Society.</speak>');
     }else
 
