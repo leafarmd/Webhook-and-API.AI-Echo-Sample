@@ -40,6 +40,25 @@ restService.post('/echo', function(req, res) {
 
     // var txt = JSON.stringify(req.body);
 
+    function permissionChecker(assistant) {
+      const permission = assistant.SupportedPermissions.DEVICE_PRECISE_LOCATION;
+      assistant.askForPermission('to find the closest news from you.', permission);
+    }
+
+    function gotPermission(assistant) {
+    if (assistant.isPermissionGranted()) {
+        //findClosestBusStop(assistant)
+      assistant.ask(JSON.stringify(assistant.getContext(“request_permission”).parameters));
+    } else {
+        assistant.tell(“I cannot find your location.”);
+    }
+
+    const actionMap = new Map();
+    actionMap.set('request-location', permissionChecker);
+    actionMap.set('find-location', gotPermission);
+    assistant.handleRequest(actionMap);
+
+
     if(speech.indexOf(ubilab) > -1) {
       sendResponse('<speak>Ubilab is a place for academic research which connects theoretical references with their practical application. The lab was created in the Graduate Program of Communications of the Pontifical Catholic University of Rio Grande do Sul (PUCRS) to create a multidisciplinary dialogue to research new perspectives of the Information Society.</speak>');
     }else
@@ -232,6 +251,9 @@ if(speech.indexOf(rs) > -1) {
     function sendResponse(msg) {
       assistant.ask(msg);
     }
+
+
+}
 
 });
 
