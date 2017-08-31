@@ -45,7 +45,7 @@ restService.post('/echo', function(req, res) {
     }else
 
     if(speech.indexOf(song) > -1) {
-      sendResponse('<speak> here\'s a song to you <audio src="https://leafarmd.000webhostapp.com/news.mp3">didnt get your MP3 audio file</audio></speak>')
+      sendResponse('<speak> playing audio news <audio src="https://leafarmd.000webhostapp.com/news.mp3">didnt get your MP3 audio file</audio></speak>')
     }else
 
 
