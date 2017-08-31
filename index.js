@@ -19,7 +19,7 @@ restService.post('/echo', function(req, res) {
 
   //assistant.ask(JSON.stringify(assistant);
 
-  var song = "song";
+  var song = "talk";
   var ubilab = "ubilab";
   //news sections
   var news = "news";
