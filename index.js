@@ -40,37 +40,21 @@ restService.post('/echo', function(req, res) {
 
     // var txt = JSON.stringify(req.body);
 
-    function permissionChecker(assistant) {
-      const permission = assistant.SupportedPermissions.DEVICE_PRECISE_LOCATION;
-      assistant.askForPermission('to find the closest news from you.', permission);
-    }
-
-    function gotPermission(assistant) {
-    if (assistant.isPermissionGranted()) {
-        //findClosestBusStop(assistant)
-      assistant.ask(JSON.stringify(assistant.getContext("request_permission")));
-    } else {
-        assistant.tell("I cannot find your location.");
-    }
-
-    const actionMap = new Map();
-    actionMap.set('request-location', permissionChecker);
-    actionMap.set('find-location', gotPermission);
-    assistant.handleRequest(actionMap);
 
 
-    if(speech.indexOf(ubilab) > -1) {
+
+    if(message.indexOf(ubilab) > -1) {
       sendResponse('<speak>Ubilab is a place for academic research which connects theoretical references with their practical application. The lab was created in the Graduate Program of Communications of the Pontifical Catholic University of Rio Grande do Sul (PUCRS) to create a multidisciplinary dialogue to research new perspectives of the Information Society.</speak>');
     }else
 
-    if(speech.indexOf(song) > -1) {
+    if(message.indexOf(song) > -1) {
       sendResponse('<speak> here\'s a song to you <audio src="https://leafarmd.000webhostapp.com/news.mp3">didnt get your MP3 audio file</audio></speak>')
     }else
 
 
     //news sections
 
-if(speech.indexOf(science) > -1) {
+if(message.indexOf(science) > -1) {
       var parser = require('rss-parser');
       parser.parseURL('http://g1.globo.com/dynamo/ciencia-e-saude/rss2.xml', function(err, parsed) {
         var speechNews = "";
@@ -84,7 +68,7 @@ if(speech.indexOf(science) > -1) {
         });
       });
     }else
-if(speech.indexOf(economy) > -1) {
+if(message.indexOf(economy) > -1) {
       var parser = require('rss-parser');
       parser.parseURL('http://g1.globo.com/dynamo/economia/rss2.xml', function(err, parsed) {
         var speechNews = "";
@@ -99,7 +83,7 @@ if(speech.indexOf(economy) > -1) {
       });
     }else
 
-if(speech.indexOf(education) > -1) {
+if(message.indexOf(education) > -1) {
       var parser = require('rss-parser');
       parser.parseURL('http://g1.globo.com/dynamo/educacao/rss2.xml', function(err, parsed) {
         var speechNews = "";
@@ -114,7 +98,7 @@ if(speech.indexOf(education) > -1) {
       });
     }else
 
-if(speech.indexOf(world) > -1) {
+if(message.indexOf(world) > -1) {
       var parser = require('rss-parser');
       parser.parseURL('http://g1.globo.com/dynamo/mundo/rss2.xml', function(err, parsed) {
         var speechNews = "";
@@ -129,7 +113,7 @@ if(speech.indexOf(world) > -1) {
       });
     }else
 
-if(speech.indexOf(music) > -1) {
+if(message.indexOf(music) > -1) {
       var parser = require('rss-parser');
       parser.parseURL('http://g1.globo.com/dynamo/musica/rss2.xml', function(err, parsed) {
         var speechNews = "";
@@ -144,7 +128,7 @@ if(speech.indexOf(music) > -1) {
       });
     }else
 
-if(speech.indexOf(science) > -1) {
+if(message.indexOf(science) > -1) {
       var parser = require('rss-parser');
       parser.parseURL('http://g1.globo.com/dynamo/ciencia-e-saude/rss2.xml', function(err, parsed) {
         var speechNews = "";
@@ -159,7 +143,7 @@ if(speech.indexOf(science) > -1) {
       });
     }else
 
-if(speech.indexOf(politics) > -1) {
+if(message.indexOf(politics) > -1) {
       var parser = require('rss-parser');
       parser.parseURL('http://g1.globo.com/dynamo/politica/mensalao/rss2.xml', function(err, parsed) {
         var speechNews = "";
@@ -174,7 +158,7 @@ if(speech.indexOf(politics) > -1) {
       });
     }else
 
-if(speech.indexOf(technology) > -1) {
+if(message.indexOf(technology) > -1) {
       var parser = require('rss-parser');
       parser.parseURL('http://g1.globo.com/dynamo/tecnologia/rss2.xml', function(err, parsed) {
         var speechNews = "";
@@ -191,7 +175,7 @@ if(speech.indexOf(technology) > -1) {
 
 //regions
 
-if(speech.indexOf(sp) > -1) {
+if(message.indexOf(sp) > -1) {
       var parser = require('rss-parser');
       parser.parseURL('http://g1.globo.com/dynamo/sao-paulo/rss2.xml', function(err, parsed) {
         var speechNews = "";
@@ -206,7 +190,7 @@ if(speech.indexOf(sp) > -1) {
       });
     }else
 
-if(speech.indexOf(rj) > -1) {
+if(message.indexOf(rj) > -1) {
       var parser = require('rss-parser');
       parser.parseURL('http://g1.globo.com/dynamo/rio-de-janeiro/rss2.xml', function(err, parsed) {
         var speechNews = "";
@@ -221,7 +205,7 @@ if(speech.indexOf(rj) > -1) {
       });
     }else
 
-if(speech.indexOf(rs) > -1) {
+if(message.indexOf(rs) > -1) {
       var parser = require('rss-parser');
       parser.parseURL('http://g1.globo.com/dynamo/rs/rio-grande-do-sul/rss2.xml', function(err, parsed) {
         var speechNews = "";
@@ -237,7 +221,7 @@ if(speech.indexOf(rs) > -1) {
     }else
 
 
-    if(speech.indexOf(news) > -1) {
+    if(message.indexOf(news) > -1) {
       var parser = require('rss-parser');
       parser.parseURL('http://g1.globo.com/dynamo/rss2.xml', function(err, parsed) {
         var speechNews = "";
