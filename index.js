@@ -36,10 +36,10 @@ restService.post('/echo', function(req, res) {
   var rj = "rio de janeiro";
   var rs = "rio grande do sul";
 
-    var speech = req.body.result && req.body.result.parameters && req.body.result.parameters.echoText ? req.body.result.parameters.echoText : "Seems like some problem. Speak again."
+    //var speech = req.body.result && req.body.result.parameters && req.body.result.parameters.echoText ? req.body.result.parameters.echoText : "Seems like some problem. Speak again."
 
     // var txt = JSON.stringify(req.body);
-    assistant.askForPermission('to find the closest news from you.', permission);
+
     function permissionChecker(assistant) {
       const permission = assistant.SupportedPermissions.DEVICE_PRECISE_LOCATION;
       assistant.askForPermission('to find the closest news from you.', permission);
