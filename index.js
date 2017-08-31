@@ -48,7 +48,7 @@ restService.post('/echo', function(req, res) {
     function gotPermission(assistant) {
     if (assistant.isPermissionGranted()) {
         //findClosestBusStop(assistant)
-      assistant.ask(JSON.stringify(assistant.getContext("request_permission").parameters));
+      assistant.ask(JSON.stringify(assistant.getContext("request_permission")));
     } else {
         assistant.tell("I cannot find your location.");
     }
