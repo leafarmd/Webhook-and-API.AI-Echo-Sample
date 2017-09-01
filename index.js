@@ -17,7 +17,7 @@ restService.post('/echo', function(req, res) {
   const assistant = new Assistant({ request: req, response: res });
   var message = assistant.getArgument('echoText');
 
-  //assistant.ask(JSON.stringify(assistant);
+  assistant.ask(JSON.stringify(assistant));
 
   var song = "talk";
   var ubilab = "ubilab";
