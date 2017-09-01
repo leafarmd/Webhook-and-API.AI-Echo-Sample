@@ -17,7 +17,7 @@ restService.post('/echo', function(req, res) {
   const assistant = new Assistant({ request: req, response: res });
   var message = assistant.getArgument('echoText');
 
-  assistant.ask(JSON.stringify(assistant));
+  
 
   var song = "talk";
   var ubilab = "ubilab";
@@ -67,10 +67,10 @@ restService.post('/echo', function(req, res) {
   //   actionMap.set('find-location', gotPermission);
   //   assistant.handleRequest(actionMap);
 
-    //var speech = req.body.result && req.body.result.parameters && req.body.result.parameters.echoText ? req.body.result.parameters.echoText : "Seems like some problem. Speak again."
+  //var speech = req.body.result && req.body.result.parameters && req.body.result.parameters.echoText ? req.body.result.parameters.echoText : "Seems like some problem. Speak again."
 
-     var txt = JSON.stringify(assistant);
-     sendResponse(txt);
+    //  var txt = JSON.stringify(assistant);
+    //  sendResponse(txt);
     if(message.indexOf(ubilab) > -1) {
       sendResponse('<speak>Ubilab is a place for academic research which connects theoretical references with their practical application. The lab was created in the Graduate Program of Communications of the Pontifical Catholic University of Rio Grande do Sul (PUCRS) to create a multidisciplinary dialogue to research new perspectives of the Information Society.</speak>');
     }else
