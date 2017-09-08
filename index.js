@@ -17,11 +17,6 @@ restService.post('/echo', function(req, res) {
   const assistant = new Assistant({ request: req, response: res });
   var message = assistant.getArgument('echoText');
 
-  return res.json({
-      speech: 'teste',
-      displayText: speech,
-      source: 'webhook-echo-sample'
-  });
 
   var song = "talk";
   var ubilab = "ubilab";
