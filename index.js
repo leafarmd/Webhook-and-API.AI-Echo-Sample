@@ -37,7 +37,7 @@ restService.post('/echo', function(req, res) {
 
 
     if(message.indexOf(ubilab) > -1) {
-      sendResponse('Ubilab is a place for academic research which connects theoretical references with their practical application. The lab was created in the Graduate Program of Communications of the Pontifical Catholic University of Rio Grande do Sul (PUCRS) to create a multidisciplinary dialogue to research new perspectives of the Information Society.');
+      sendResponse("Ubilab is a place for academic research which connects theoretical references with their practical application. The lab was created in the Graduate Program of Communications of the Pontifical Catholic University of Rio Grande do Sul (PUCRS) to create a multidisciplinary dialogue to research new perspectives of the Information Society.");
     }else
 
     if(message.indexOf(song) > -1) {
