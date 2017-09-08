@@ -16,7 +16,7 @@ restService.post('/echo', function(req, res) {
 
   const assistant = new Assistant({ request: req, response: res });
   var message = assistant.getArgument('echoText');
-
+  assistant.ask(message);
   //assistant.ask(JSON.stringify(assistant);
 
   var song = "talk";
@@ -67,7 +67,7 @@ restService.post('/echo', function(req, res) {
   //   actionMap.set('find-location', gotPermission);
   //   assistant.handleRequest(actionMap);
 
-    //var speech = req.body.result && req.body.result.parameters && req.body.result.parameters.echoText ? req.body.result.parameters.echoText : "Seems like some problem. Speak again."
+    var speech = req.body.result && req.body.result.parameters && req.body.result.parameters.echoText ? req.body.result.parameters.echoText : "Seems like some problem. Speak again."
 
     // var txt = JSON.stringify(req.body);
 
