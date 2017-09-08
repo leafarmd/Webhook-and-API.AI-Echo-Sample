@@ -103,7 +103,7 @@ restService.post('/echo', function(req, res) {
         for(var i = 0; i < 4;i++){
         speechNews = parsed.feed.entries[i].title + ".\n" + speechNews;
         }
-        sendResponse(speechNews);
+        sendResponse("<speak>" + speechNews + "</speak>");
       });
     }
 
