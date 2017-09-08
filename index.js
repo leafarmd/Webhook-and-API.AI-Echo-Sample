@@ -5,6 +5,7 @@ const bodyParser = require('body-parser');
 
 const restService = express();
 process.env.DEBUG = 'actions-on-google:*';
+const ActionsSdkApp = require('actions-on-google').ActionsSdkApp;
 const Assistant = require('actions-on-google').ApiAiAssistant;
 restService.use(bodyParser.urlencoded({
     extended: true
@@ -14,6 +15,7 @@ restService.use(bodyParser.json());
 
 restService.post('/echo', function(req, res) {
 
+  const app = new ActionsSdkApp({request: request, response: response});
   const assistant = new Assistant({ request: req, response: res });
   var message = assistant.getArgument('echoText');
 
