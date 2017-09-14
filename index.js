@@ -15,7 +15,7 @@ restService.use(bodyParser.json());
 restService.post('/echo', function(req, res) {
 
   const assistant = new Assistant({ request: req, response: res });
-  var message = assistant.getArgument('echoText');
+  var message = assistant.getArgument('echoText').toLowerCase();
   var song = "talk";
   var ubilab = "ubilab";
   //news sections
@@ -91,6 +91,8 @@ restService.post('/echo', function(req, res) {
 
     if(message.indexOf(news) > -1) {
       parseFromRSS('http://g1.globo.com/dynamo/rss2.xml');
+    }else{
+      sendResponse("desculpe, não entendi, pode repetir?");
     }
 
 
