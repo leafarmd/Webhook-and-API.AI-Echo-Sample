@@ -44,6 +44,7 @@ restService.post('/echo', function(req, res) {
     }else
 
     if(message.indexOf("name") > -1) {
+      pos++;
       assistant.ask(""+pos);
     }else
 
