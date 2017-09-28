@@ -40,16 +40,16 @@ restService.post('/echo', function(req, res) {
 
           let preciseLocationPermission = assistant.SupportedPermissions.DEVICE_PRECISE_LOCATION;
           assistant.askForPermissions('To address you by name and know your location',[preciseLocationPermission]);
-          var txt = JSON.stringify(req.body);
-          return res.json({
-              speech: txt,
-              displayText: speech,
-              source: 'webhook-echo-sample'
-          });
     }else
 
     if(message.indexOf(song) > -1) {
-      sendResponse('<speak> playing audio news <audio src="https://leafarmd.000webhostapp.com/news.mp3"></audio></speak>')
+      var txt = JSON.stringify(req.body);
+      return res.json({
+          speech: txt,
+          displayText: speech,
+          source: 'webhook-echo-sample'
+      });
+      //sendResponse('<speak> playing audio news <audio src="https://leafarmd.000webhostapp.com/news.mp3"></audio></speak>')
     }else
 
 
