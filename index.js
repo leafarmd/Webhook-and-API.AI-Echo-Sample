@@ -19,7 +19,7 @@ restService.post('/echo', function(req, res) {
   var song = "talk";
   var ubilab = "ubilab";
   //news sections
-  var news = "news up happening";
+  var news = "news";
   var science = "science";
   var economy = "economy";
   var education = "education";
