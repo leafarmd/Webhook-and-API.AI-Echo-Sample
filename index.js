@@ -19,7 +19,7 @@ restService.post('/echo', function(req, res) {
   var song = "talk";
   var ubilab = "ubilab";
   //news sections
-  var news = "news";
+  var news = "news up happening";
   var science = "science";
   var economy = "economy";
   var education = "education";
@@ -92,7 +92,7 @@ restService.post('/echo', function(req, res) {
     if(message.indexOf(news) > -1) {
       parseFromRSS('http://g1.globo.com/dynamo/rss2.xml');
     }else{
-      sendResponse("desculpe, não entendi, pode repetir?");
+      sendResponse("<speak>sorry, i can't help you with that, but you can ask me the news, or about the sports.</speak>");
     }
 
 
