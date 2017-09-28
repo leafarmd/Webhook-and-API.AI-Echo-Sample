@@ -28,6 +28,7 @@ restService.post('/echo', function(req, res) {
   var music = "music";
   var politics = "politics";
   var technology = "technology";
+  var sports = "sports";
 
   //regions
   var sp = "sao paulo";
@@ -35,18 +36,19 @@ restService.post('/echo', function(req, res) {
   var rs = "rio grande do sul";
 
 
-    if(message.indexOf(ubilab) > -1) {
-      //sendResponse("Ubilab is a place for academic research which connects theoretical references with their practical application. The lab was created in the Graduate Program of Communications of the Pontifical Catholic University of Rio Grande do Sul (PUCRS) to create a multidisciplinary dialogue to research new perspectives of the Information Society.");
+    if(message.indexOf("location") > -1) {
       let preciseLocationPermission = assistant.SupportedPermissions.DEVICE_PRECISE_LOCATION;
       assistant.askForPermissions('To address you by name and know your location',[preciseLocationPermission]);
+      assistant.sendResponse(assistant.getDeviceLocation().coordinates.latitude);
+    }else
 
+    if(message.indexOf(ubilab) > -1) {
+      sendResponse("Ubilab is a place for academic research which connects theoretical references with their practical application. The lab was created in the Graduate Program of Communications of the Pontifical Catholic University of Rio Grande do Sul (PUCRS) to create a multidisciplinary dialogue to research new perspectives of the Information Society.");
     }else
 
     if(message.indexOf(song) > -1) {
-      assistant.sendResponse(assistant.getDeviceLocation().coordinates.latitude);
-      //sendResponse('<speak> playing audio news <audio src="https://leafarmd.000webhostapp.com/news.mp3"></audio></speak>')
+      sendResponse('<speak> playing audio news <audio src="https://leafarmd.000webhostapp.com/news.mp3"></audio></speak>')
     }else
-
 
     //news sections
 
@@ -60,10 +62,6 @@ restService.post('/echo', function(req, res) {
 
     if(message.indexOf(education) > -1) {
       parseFromRSS('http://g1.globo.com/dynamo/educacao/rss2.xml');
-    }else
-
-    if(message.indexOf(education) > -1) {
-      parseFromRSS('http://g1.globo.com/dynamo/mundo/rss2.xml');
     }else
 
     if(message.indexOf(music) > -1) {
@@ -82,6 +80,10 @@ restService.post('/echo', function(req, res) {
       parseFromRSS('http://g1.globo.com/dynamo/tecnologia/rss2.xml');
     }else
 
+    if(message.indexOf(technology) > -1) {
+      parseFromRSS('http://globoesporte.globo.com/servico/semantica/editorias/plantao/feed.rss');
+    }else
+
     if(message.indexOf(sp) > -1) {
       parseFromRSS('http://g1.globo.com/dynamo/sao-paulo/rss2.xml');
     }else
@@ -97,7 +99,7 @@ restService.post('/echo', function(req, res) {
     if(message.indexOf(news) > -1) {
       parseFromRSS('http://g1.globo.com/dynamo/rss2.xml');
     }else{
-      sendResponse("<speak>sorry, i can't help you with that, but you can ask me the news, or about the sports.</speak>");
+      sendResponse("<speak>sorry, i can't help you with that, but you can ask me the news or about sports.</speak>");
     }
 
 
