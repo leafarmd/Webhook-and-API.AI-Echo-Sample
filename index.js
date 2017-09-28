@@ -34,7 +34,7 @@ restService.post('/echo', function(req, res) {
   var rj = "rio de janeiro";
   var rs = "rio grande do sul";
 
-    let preciseLocationPermission = app.SupportedPermissions.DEVICE_PRECISE_LOCATION
+    let preciseLocationPermission = app.SupportedPermissions.DEVICE_PRECISE_LOCATION;
     assistant.askForPermissions('To address you by name and know your location',[namePermission, preciseLocationPermission]);
 
 
