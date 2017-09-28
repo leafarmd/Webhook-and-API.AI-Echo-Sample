@@ -39,7 +39,8 @@ restService.post('/echo', function(req, res) {
     if(message.indexOf("location") > -1) {
       let preciseLocationPermission = assistant.SupportedPermissions.DEVICE_PRECISE_LOCATION;
       assistant.askForPermissions('To address you by name and know your location',[preciseLocationPermission]);
-      assistant.sendResponse(assistant.getDeviceLocation().coordinates.latitude);
+      assistant.ask(assistant.getDeviceLocation().coordinates.latitude);
+      //let displayName = app.getUserName().displayName;
     }else
 
     if(message.indexOf(ubilab) > -1) {
