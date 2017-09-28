@@ -42,9 +42,9 @@ restService.post('/echo', function(req, res) {
       //assistant.ask(assistant.getDeviceLocation().coordinates.latitude);
       //let displayName = app.getUserName().displayName;
     }else
-    
+
     if(message.indexOf("name") > -1) {
-      assistant.ask(pos);
+      assistant.ask(""+pos);
     }else
 
     if(message.indexOf(ubilab) > -1) {
