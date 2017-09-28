@@ -39,7 +39,7 @@ restService.post('/echo', function(req, res) {
       //sendResponse("Ubilab is a place for academic research which connects theoretical references with their practical application. The lab was created in the Graduate Program of Communications of the Pontifical Catholic University of Rio Grande do Sul (PUCRS) to create a multidisciplinary dialogue to research new perspectives of the Information Society.");
         const app = new ApiAiApp({request: request, response: response});
           let preciseLocationPermission = app.SupportedPermissions.DEVICE_PRECISE_LOCATION;
-          app.askForPermissions('To address you by name and know your location',[namePermission, preciseLocationPermission]);
+          app.askForPermissions('To address you by name and know your location',[preciseLocationPermission]);
 
     }else
 
