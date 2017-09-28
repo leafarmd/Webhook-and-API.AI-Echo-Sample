@@ -18,6 +18,7 @@ restService.post('/echo', function(req, res) {
   var message = assistant.getArgument('echoText').toLowerCase();
   var song = "talk";
   var ubilab = "ubilab";
+
   //news sections
   var news = "news";
   var science = "science";
@@ -27,11 +28,14 @@ restService.post('/echo', function(req, res) {
   var music = "music";
   var politics = "politics";
   var technology = "technology";
-  //regions
 
+  //regions
   var sp = "sao paulo";
   var rj = "rio de janeiro";
   var rs = "rio grande do sul";
+
+    let preciseLocationPermission = app.SupportedPermissions.DEVICE_PRECISE_LOCATION
+    assistant.askForPermissions('To address you by name and know your location',[namePermission, preciseLocationPermission]);
 
 
     if(message.indexOf(ubilab) > -1) {
