@@ -2,7 +2,7 @@
 
 const express = require('express');
 const bodyParser = require('body-parser');
-
+var pos = 0;
 const restService = express();
 process.env.DEBUG = 'actions-on-google:*';
 const Assistant = require('actions-on-google').ApiAiAssistant;
@@ -18,7 +18,7 @@ restService.post('/echo', function(req, res) {
   var message = assistant.getArgument('echoText').toLowerCase();
   var song = "talk";
   var ubilab = "ubilab";
-  var pos = 0;
+
   //news sections
   var news = "news";
   var science = "science";
