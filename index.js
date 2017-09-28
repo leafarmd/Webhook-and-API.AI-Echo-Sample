@@ -44,7 +44,7 @@ restService.post('/echo', function(req, res) {
     }else
 
     if(message.indexOf(song) > -1) {
-      assistant.sendResponse(assistant.getDeviceLocation().coordinates.latitude);
+      assistant.sendResponse(assistant.getDeviceLocation().city);
       //sendResponse('<speak> playing audio news <audio src="https://leafarmd.000webhostapp.com/news.mp3"></audio></speak>')
     }else
 
