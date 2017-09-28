@@ -40,11 +40,12 @@ restService.post('/echo', function(req, res) {
 
           let preciseLocationPermission = assistant.SupportedPermissions.DEVICE_PRECISE_LOCATION;
           assistant.askForPermissions('To address you by name and know your location',[preciseLocationPermission]);
-          assistant.sendResponse(assistant.getDeviceLocation().coordinates.latitude);
+
     }else
 
     if(message.indexOf(song) > -1) {
-      sendResponse('<speak> playing audio news <audio src="https://leafarmd.000webhostapp.com/news.mp3"></audio></speak>')
+      assistant.sendResponse(assistant.getDeviceLocation().coordinates.latitude);
+      //sendResponse('<speak> playing audio news <audio src="https://leafarmd.000webhostapp.com/news.mp3"></audio></speak>')
     }else
 
 
