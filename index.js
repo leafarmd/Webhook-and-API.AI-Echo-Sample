@@ -43,7 +43,7 @@ restService.post('/echo', function(req, res) {
       //let displayName = app.getUserName().displayName;
     }else
 
-    if(message.indexOf("name") > -1) {
+    if(message.indexOf("next") > -1) {
       pos++;
       assistant.ask(""+pos);
     }else
@@ -86,7 +86,7 @@ restService.post('/echo', function(req, res) {
       parseFromRSS('http://g1.globo.com/dynamo/tecnologia/rss2.xml');
     }else
 
-    if(message.indexOf(technology) > -1) {
+    if(message.indexOf(sports) > -1) {
       parseFromRSS('http://globoesporte.globo.com/servico/semantica/editorias/plantao/feed.rss');
     }else
 
