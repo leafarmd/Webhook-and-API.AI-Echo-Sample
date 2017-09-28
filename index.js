@@ -37,13 +37,13 @@ restService.post('/echo', function(req, res) {
 
 
     if(message.indexOf("location") > -1) {
-      let preciseLocationPermission = assistant.SupportedPermissions.DEVICE_PRECISE_LOCATION;
+      let preciseLocationPermission = assistant.SupportedPermissions.NAME;
       assistant.askForPermissions('To address you by name and know your location',[preciseLocationPermission]);
       //assistant.ask(assistant.getDeviceLocation().coordinates.latitude);
       //let displayName = app.getUserName().displayName;
     }else
-    if(message.indexOf("yes") > -1) {
-      assistant.ask(assistant.getDeviceLocation().coordinates.latitude);
+    if(message.indexOf("name") > -1) {
+      assistant.ask(app.getUserName().displayName);
     }else
     if(message.indexOf(ubilab) > -1) {
       sendResponse("Ubilab is a place for academic research which connects theoretical references with their practical application. The lab was created in the Graduate Program of Communications of the Pontifical Catholic University of Rio Grande do Sul (PUCRS) to create a multidisciplinary dialogue to research new perspectives of the Information Society.");
