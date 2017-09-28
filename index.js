@@ -9,7 +9,7 @@ const Assistant = require('actions-on-google').ApiAiAssistant;
 restService.use(bodyParser.urlencoded({
     extended: true
 }));
-var pos = 0;
+
 restService.use(bodyParser.json());
 
 restService.post('/echo', function(req, res) {
@@ -18,7 +18,7 @@ restService.post('/echo', function(req, res) {
   var message = assistant.getArgument('echoText').toLowerCase();
   var song = "talk";
   var ubilab = "ubilab";
-
+  var pos = 0;
   //news sections
   var news = "news";
   var science = "science";
@@ -43,6 +43,7 @@ restService.post('/echo', function(req, res) {
       //let displayName = app.getUserName().displayName;
     }else
     if(message.indexOf("name") > -1) {
+      pos++;
       assistant.ask(pos);
     }else
     if(message.indexOf(ubilab) > -1) {
