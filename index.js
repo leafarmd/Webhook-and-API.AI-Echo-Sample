@@ -20,6 +20,7 @@ restService.post('/echo', function(req, res) {
   var ubilab = "ubilab";
   var title = " ";
   var next = "next";
+  var back = "back";
   //news sections
 
   var news = "news";
@@ -45,11 +46,18 @@ restService.post('/echo', function(req, res) {
       //let displayName = app.getUserName().displayName;
     }else
 
-    if(message.indexOf("next") > -1) {
+    if(message.indexOf(next) > -1) {
       if(pos == 7){
         pos = 0
       } else pos++;
 
+      setMessage(newsArr[pos]);
+    }else
+
+    if(message.indexOf(back) > -1) {
+      if(pos == 0){
+        pos = 7
+      } else pos--;
       setMessage(newsArr[pos]);
     }else
 
