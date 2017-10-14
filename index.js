@@ -96,7 +96,7 @@ restService.post('/echo', function(req, res) {
     }else
 
     if(message.indexOf(sports) > -1) {
-      title = "News from sports"
+      title = "News from sports";
       parseFromRSS('http://globoesporte.globo.com/servico/semantica/editorias/plantao/feed.rss');
     }else
 
