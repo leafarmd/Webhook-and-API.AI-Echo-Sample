@@ -124,7 +124,7 @@ restService.post('/echo', function(req, res) {
         for(var i = 0; i < 4;i++){
         speechNews = parsed.feed.entries[i].title + ".\n" + speechNews;
         }
-        sendResponse("<speak>" + title + speechNews + "</speak>");
+        sendResponse("<speak>" + title + "<break time="1s"/>" + speechNews + "</speak>");
       });
     }
 
