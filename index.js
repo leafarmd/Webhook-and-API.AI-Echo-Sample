@@ -66,32 +66,32 @@ restService.post('/echo', function(req, res) {
     //news sections
 
     if(message.indexOf(science) > -1) {
-      title = "News from science"
+      title = "News from science";
       parseFromRSS('http://g1.globo.com/dynamo/ciencia-e-saude/rss2.xml');
     }else
 
     if(message.indexOf(economy) > -1) {
-      title = "News from economy"
+      title = "News from economy";
       parseFromRSS('http://g1.globo.com/dynamo/economia/rss2.xml');
     }else
 
     if(message.indexOf(education) > -1) {
-      title = "News from education"
+      title = "News from education";
       parseFromRSS('http://g1.globo.com/dynamo/educacao/rss2.xml');
     }else
 
     if(message.indexOf(music) > -1) {
-      title = "News from music"
+      title = "News from music";
       parseFromRSS('http://g1.globo.com/dynamo/musica/rss2.xml');
     }else
 
     if(message.indexOf(politics) > -1) {
-      title = "News from politics"
+      title = "News from politics";
       parseFromRSS('http://g1.globo.com/dynamo/politica/mensalao/rss2.xml');
     }else
 
     if(message.indexOf(technology) > -1) {
-      title = "News from technology"
+      title = "News from technology";
       parseFromRSS('http://g1.globo.com/dynamo/tecnologia/rss2.xml');
     }else
 
@@ -101,22 +101,22 @@ restService.post('/echo', function(req, res) {
     }else
 
     if(message.indexOf(sp) > -1) {
-      title = "News from Sao Paulo"
+      title = "News from Sao Paulo";
       parseFromRSS('http://g1.globo.com/dynamo/sao-paulo/rss2.xml');
     }else
 
     if(message.indexOf(rj) > -1) {
-      title = "News from Rio de Janeiro"
+      title = "News from Rio de Janeiro";
       parseFromRSS('http://g1.globo.com/dynamo/rio-de-janeiro/rss2.xml');
     }else
 
     if(message.indexOf(rs) > -1) {
-      title = "News from Rio Grande do Sul"
+      title = "News from Rio Grande do Sul";
       parseFromRSS('http://g1.globo.com/dynamo/rs/rio-grande-do-sul/rss2.xml');
     }else
 
     if(message.indexOf(news) > -1) {
-      title = "these are the general news"
+      title = "these are the general news";
       parseFromRSS('http://g1.globo.com/dynamo/rss2.xml');
     }else{
       sendResponse("<speak>sorry, i can't help you with that, but you can ask me the news or about sports.</speak>");
