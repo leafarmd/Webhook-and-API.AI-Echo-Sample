@@ -18,7 +18,7 @@ restService.post('/echo', function(req, res) {
   var message = assistant.getArgument('echoText').toLowerCase();
   var song = "talk";
   var ubilab = "ubilab";
-
+  var title = " ";
   //news sections
   var news = "news";
   var science = "science";
@@ -29,7 +29,7 @@ restService.post('/echo', function(req, res) {
   var politics = "politics";
   var technology = "technology";
   var sports = "sports";
-
+  var headlines = "headlines";
   //regions
   var sp = "sao paulo";
   var rj = "rio de janeiro";
@@ -52,7 +52,7 @@ restService.post('/echo', function(req, res) {
       sendResponse("Ubilab is a place for academic research which connects theoretical references with their practical application. The lab was created in the Graduate Program of Communications of the Pontifical Catholic University of Rio Grande do Sul (PUCRS) to create a multidisciplinary dialogue to research new perspectives of the Information Society.");
     }else
 
-    if(message.indexOf(song) > -1) {
+    if(message.indexOf(headlines) > -1) {
       sendResponse('<speak> playing audio news <audio src="https://leafarmd.000webhostapp.com/news2.mp3"></audio></speak>')
     }else
 
