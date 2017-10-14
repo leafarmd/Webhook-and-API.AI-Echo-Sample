@@ -19,7 +19,9 @@ restService.post('/echo', function(req, res) {
   var song = "talk";
   var ubilab = "ubilab";
   var title = " ";
+  var next = "next";
   //news sections
+
   var news = "news";
   var science = "science";
   var economy = "economy";
@@ -34,7 +36,7 @@ restService.post('/echo', function(req, res) {
   var sp = "sao paulo";
   var rj = "rio de janeiro";
   var rs = "rio grande do sul";
-
+  var newsArr = {news, science, economy, education, world, music, politics, technology, sports, sp, rj, rs};
 
     if(message.indexOf("location") > -1) {
       let preciseLocationPermission = assistant.SupportedPermissions.NAME;
@@ -45,7 +47,7 @@ restService.post('/echo', function(req, res) {
 
     if(message.indexOf("next") > -1) {
       pos++;
-      assistant.ask(""+pos);
+      setMessage(newsArr[pos]);
     }else
 
     if(message.indexOf(ubilab) > -1) {
@@ -78,6 +80,7 @@ restService.post('/echo', function(req, res) {
       }else
 
       if(message.indexOf(science) > -1) {
+        pos = 1;
         title = "these are the latest news for science: ";
         parseFromRSS('http://g1.globo.com/dynamo/ciencia-e-saude/rss2.xml');
       }else
@@ -113,6 +116,7 @@ restService.post('/echo', function(req, res) {
       }else
 
       if(message.indexOf(news) > -1) {
+        pos = 0;
         title = "these are the latest news: ";
         parseFromRSS('http://g1.globo.com/dynamo/rss2.xml');
       }else{
