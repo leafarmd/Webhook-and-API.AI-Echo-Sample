@@ -54,7 +54,10 @@ restService.post('/echo', function(req, res) {
 
     if(message.indexOf(headlines) > -1) {
       sendResponse('<speak> playing audio news <audio src="https://leafarmd.000webhostapp.com/news2.mp3"></audio></speak>')
-    }else
+    }else{
+      setMessage(message);
+    }
+
 
     //news sections
 
