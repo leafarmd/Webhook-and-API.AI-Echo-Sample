@@ -46,7 +46,7 @@ restService.post('/echo', function(req, res) {
     }else
 
     if(message.indexOf("next") > -1) {
-      pos++;
+      pos = 1;
       setMessage(newsArr[pos]);
     }else
 
