@@ -103,6 +103,7 @@ restService.post('/echo', function(req, res) {
     }else
 
     if(message.indexOf(news) > -1) {
+      title = "these are the latest news";
       parseFromRSS('http://g1.globo.com/dynamo/rss2.xml');
     }else{
       sendResponse("<speak>sorry, i can't help you with that, but you can ask me the news or about sports.</speak>");
@@ -116,7 +117,7 @@ restService.post('/echo', function(req, res) {
         for(var i = 0; i < 4;i++){
         speechNews = parsed.feed.entries[i].title + ".\n" + speechNews;
         }
-        sendResponse("<speak>" + speechNews + "</speak>");
+        sendResponse("<speak>" + title + speechNews + "</speak>");
       });
     }
 
