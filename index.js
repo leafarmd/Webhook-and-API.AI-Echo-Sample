@@ -36,7 +36,7 @@ restService.post('/echo', function(req, res) {
   var sp = "sao paulo";
   var rj = "rio de janeiro";
   var rs = "rio grande do sul";
-  var newsArr = {"news", "science", "economy", "education", "world", "music", "politics", "technology", "sports"};
+  var newsArr = ["news", "science", "economy", "education", "world", "music", "politics", "technology", "sports"];
 
     if(message.indexOf("location") > -1) {
       let preciseLocationPermission = assistant.SupportedPermissions.NAME;
