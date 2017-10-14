@@ -3,8 +3,8 @@
 const express = require('express');
 const bodyParser = require('body-parser');
 var pos = 0;
-var lastMessage = "";
-var newsArray = {"","","","",""};
+// var lastMessage = "";
+// var newsArray = {"","","","",""};
 const restService = express();
 process.env.DEBUG = 'actions-on-google:*';
 const Assistant = require('actions-on-google').ApiAiAssistant;
