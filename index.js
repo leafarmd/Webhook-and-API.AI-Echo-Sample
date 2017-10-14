@@ -47,7 +47,7 @@ restService.post('/echo', function(req, res) {
 
     if(message.indexOf("next") > -1) {
       pos++;
-      setMessage(newsArr[pos]);
+      setMessage(science);
     }else
 
     if(message.indexOf(ubilab) > -1) {
