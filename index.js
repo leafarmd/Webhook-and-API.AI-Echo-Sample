@@ -36,7 +36,7 @@ restService.post('/echo', function(req, res) {
   var sp = "sao paulo";
   var rj = "rio de janeiro";
   var rs = "rio grande do sul";
-  var newsArr = ["news", "science", "economy", "education", "world", "music", "politics", "technology", "sports"];
+  var newsArr = ["news", "science", "economy", "education", "music", "politics", "technology", "sports"];
 
     if(message.indexOf("location") > -1) {
       let preciseLocationPermission = assistant.SupportedPermissions.NAME;
@@ -46,8 +46,11 @@ restService.post('/echo', function(req, res) {
     }else
 
     if(message.indexOf("next") > -1) {
-      pos = 1;
-      setMessage(newsArr[1]);
+      if(pos == 7){
+        pos = 0
+      } else pos++;
+
+      setMessage(newsArr[pos]);
     }else
 
     if(message.indexOf(ubilab) > -1) {
@@ -65,16 +68,19 @@ restService.post('/echo', function(req, res) {
 
     function setMessage(message){
       if(message.indexOf(economy) > -1) {
+        pos = 2;
         title = "these are the latest news for economy: ";
         parseFromRSS('http://g1.globo.com/dynamo/economia/rss2.xml');
       }else
 
       if(message.indexOf(education) > -1) {
+        pos = 3
         title = "these are the latest news for education: ";
         parseFromRSS('http://g1.globo.com/dynamo/educacao/rss2.xml');
       }else
 
       if(message.indexOf(music) > -1) {
+        pos = 4;
         title = "these are the latest news for music: ";
         parseFromRSS('http://g1.globo.com/dynamo/musica/rss2.xml');
       }else
@@ -86,16 +92,19 @@ restService.post('/echo', function(req, res) {
       }else
 
       if(message.indexOf(politics) > -1) {
+        pos = 5;
         title = "these are the latest news for politics: ";
         parseFromRSS('http://g1.globo.com/dynamo/politica/mensalao/rss2.xml');
       }else
 
       if(message.indexOf(technology) > -1) {
+        pos = 6;
         title = "these are the latest news for technology: ";
         parseFromRSS('http://g1.globo.com/dynamo/tecnologia/rss2.xml');
       }else
 
       if(message.indexOf(sports) > -1) {
+        pos = 7;
         title = "these are the latest news for sports ";
         parseFromRSS('http://globoesporte.globo.com/servico/semantica/editorias/plantao/feed.rss');
       }else
