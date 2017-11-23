@@ -19,23 +19,20 @@ restService.post('/echo', function(req, res) {
   var song = "talk";
   var ubilab = "ubilab";
   var title = " ";
-  var next = "próximo";
-  var next2 = "próxima";
-  var back = "voltar";
+  var next = "next";
+  var back = "back";
   //news sections
 
-  var news = "noticias";
-  var news2 = "noticia";
-  var science = "ciência";
-  var economy = "economia";
-  var education = "educação";
-  var world = "mundo";
-  var music = "musica";
-  var politics = "política";
-  var technology = "tecnologia";
-  var sports = "esportes";
-  var headlines = "últimas";
-  var headlines = "última";
+  var news = "news";
+  var science = "science";
+  var economy = "economy";
+  var education = "education";
+  var world = "world";
+  var music = "music";
+  var politics = "politics";
+  var technology = "technology";
+  var sports = "sports";
+  var headlines = "headlines";
   //regions
   var sp = "sao paulo";
   var rj = "rio de janeiro";
@@ -61,7 +58,6 @@ restService.post('/echo', function(req, res) {
       if(pos == 0){
         pos = 7
       } else pos--;
-
       setMessage(newsArr[pos]);
     }else
 
@@ -81,64 +77,64 @@ restService.post('/echo', function(req, res) {
     function setMessage(message){
       if(message.indexOf(economy) > -1) {
         pos = 2;
-        title = "As ultimas notícias sobre economia : ";
+        title = "these are the latest news for economy: ";
         parseFromRSS('http://g1.globo.com/dynamo/economia/rss2.xml');
       }else
 
       if(message.indexOf(education) > -1) {
         pos = 3
-        title = "As útlimas notícia sobre educação: ";
+        title = "these are the latest news for education: ";
         parseFromRSS('http://g1.globo.com/dynamo/educacao/rss2.xml');
       }else
 
       if(message.indexOf(music) > -1) {
         pos = 4;
-        title = "As útlimas notícia sobre música:  ";
+        title = "these are the latest news for music: ";
         parseFromRSS('http://g1.globo.com/dynamo/musica/rss2.xml');
       }else
 
       if(message.indexOf(science) > -1) {
         pos = 1;
-        title = "As útlimas notícia sobre ciência: ";
+        title = "these are the latest news for science: ";
         parseFromRSS('http://g1.globo.com/dynamo/ciencia-e-saude/rss2.xml');
       }else
 
       if(message.indexOf(politics) > -1) {
         pos = 5;
-        title = "these are the latest news sobre política: ";
+        title = "these are the latest news for politics: ";
         parseFromRSS('http://g1.globo.com/dynamo/politica/mensalao/rss2.xml');
       }else
 
       if(message.indexOf(technology) > -1) {
         pos = 6;
-        title = "As útlimas notícia sobre tecnologia:  ";
+        title = "these are the latest news for technology: ";
         parseFromRSS('http://g1.globo.com/dynamo/tecnologia/rss2.xml');
       }else
 
       if(message.indexOf(sports) > -1) {
         pos = 7;
-        title = "As útlimas notícia sobre esportes:  ";
+        title = "these are the latest news for sports ";
         parseFromRSS('http://globoesporte.globo.com/servico/semantica/editorias/plantao/feed.rss');
       }else
 
       if(message.indexOf(sp) > -1) {
-        title = "As útlimas notícia sobre São Paulo:  ";
+        title = "these are the latest news for Sao Paulo: ";
         parseFromRSS('http://g1.globo.com/dynamo/sao-paulo/rss2.xml');
       }else
 
       if(message.indexOf(rj) > -1) {
-        title = "tAs útlimas notícia sobre Rio de Janeiro:  ";
+        title = "these are the latest news for Rio  de Janeiro: ";
         parseFromRSS('http://g1.globo.com/dynamo/rio-de-janeiro/rss2.xml');
       }else
 
       if(message.indexOf(rs) > -1) {
-        title = "As útlimas notícia sobre Rio Grande do Sul:  ";
+        title = "these are the latest news for Rio Grande do Sul: ";
         parseFromRSS('http://g1.globo.com/dynamo/rs/rio-grande-do-sul/rss2.xml');
       }else
 
       if(message.indexOf(news) > -1) {
         pos = 0;
-        title = "Estas são as últimas notícias: ";
+        title = "these are the latest news: ";
         parseFromRSS('http://g1.globo.com/dynamo/rss2.xml');
       }else{
         sendResponse("<speak>sorry, i can't help you with that, but you can ask me the news or about sports.</speak>");
