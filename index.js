@@ -18,14 +18,11 @@ restService.post('/echo', function(req, res) {
   var message = assistant.getArgument('echoText').toLowerCase();
   var song = "talk";
   var ubilab = "ubilab";
-  var title = " ";
   var next = "próximo";
-  var next2 = "próxima";
   var back = "anterior";
   //news sections
 
   var news = "notícias";
-  var news2 = "noticia";
   var science = "ciência";
   var economy = "economia";
   var education = "educação";
@@ -70,7 +67,7 @@ restService.post('/echo', function(req, res) {
     }else
 
     if(message.indexOf(headlines) > -1) {
-      sendResponse('<speak> playing audio news <audio src="https://leafarmd.000webhostapp.com/news2.mp3"></audio></speak>')
+      sendResponse('<speak> iniciando manchete <audio src="https://leafarmd.000webhostapp.com/news2.mp3"></audio></speak>')
     }else{
       setMessage(message);
     }
@@ -141,7 +138,7 @@ restService.post('/echo', function(req, res) {
         title = "Estas são as últimas notícias: ";
         parseFromRSS('http://g1.globo.com/dynamo/rss2.xml');
       }else{
-        sendResponse("<speak>Me desculpe, não posso ajuda-lo. Mas você me perguntar sobre as últimas notícias ou sobre esportes.</speak>");
+        sendResponse("<speak>Me desculpe, não posso ajudar com isto. Mas você me perguntar sobre as últimas notícias ou sobre esportes.</speak>");
       }
     }
 
