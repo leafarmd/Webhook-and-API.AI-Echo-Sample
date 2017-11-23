@@ -18,21 +18,21 @@ restService.post('/echo', function(req, res) {
   var message = assistant.getArgument('echoText').toLowerCase();
   var song = "talk";
   var ubilab = "ubilab";
-  var next = "próximo";
+  var title = " ";
+  var next = "próxima";
   var back = "anterior";
   //news sections
 
   var news = "notícias";
   var science = "ciência";
-  var economy = "economia";
+  var economy = "ecônomia";
   var education = "educação";
   var world = "mundo";
-  var music = "musica";
+  var music = "música";
   var politics = "política";
   var technology = "tecnologia";
   var sports = "esportes";
   var headlines = "manchete";
-
   //regions
   var sp = "sao paulo";
   var rj = "rio de janeiro";
@@ -58,7 +58,6 @@ restService.post('/echo', function(req, res) {
       if(pos == 0){
         pos = 7
       } else pos--;
-
       setMessage(newsArr[pos]);
     }else
 
@@ -67,7 +66,7 @@ restService.post('/echo', function(req, res) {
     }else
 
     if(message.indexOf(headlines) > -1) {
-      sendResponse('<speak> iniciando manchete <audio src="https://leafarmd.000webhostapp.com/news2.mp3"></audio></speak>')
+      sendResponse('<speak> Iniciando manchete <audio src="https://leafarmd.000webhostapp.com/news2.mp3"></audio></speak>')
     }else{
       setMessage(message);
     }
@@ -78,67 +77,67 @@ restService.post('/echo', function(req, res) {
     function setMessage(message){
       if(message.indexOf(economy) > -1) {
         pos = 2;
-        title = "As ultimas notícias sobre economia : ";
+        title = "Estas são as últimas notícias sobre economia: ";
         parseFromRSS('http://g1.globo.com/dynamo/economia/rss2.xml');
       }else
 
       if(message.indexOf(education) > -1) {
         pos = 3
-        title = "As útlimas notícia sobre educação: ";
+        title = "Estas são as últimas notícias sobre educação: ";
         parseFromRSS('http://g1.globo.com/dynamo/educacao/rss2.xml');
       }else
 
       if(message.indexOf(music) > -1) {
         pos = 4;
-        title = "As útlimas notícia sobre música:  ";
+        title = "Estas são as últimas notícias sobre musica: ";
         parseFromRSS('http://g1.globo.com/dynamo/musica/rss2.xml');
       }else
 
       if(message.indexOf(science) > -1) {
         pos = 1;
-        title = "As útlimas notícia sobre ciência: ";
+        title = "tEstas são as últimas notícias sobre ciência: ";
         parseFromRSS('http://g1.globo.com/dynamo/ciencia-e-saude/rss2.xml');
       }else
 
       if(message.indexOf(politics) > -1) {
         pos = 5;
-        title = "As útlimas notícia sobre política: ";
+        title = "Estas são as últimas notícias sobre política: ";
         parseFromRSS('http://g1.globo.com/dynamo/politica/mensalao/rss2.xml');
       }else
 
       if(message.indexOf(technology) > -1) {
         pos = 6;
-        title = "As útlimas notícia sobre tecnologia:  ";
+        title = "Estas são as últimas notícias sobre tecnologia: ";
         parseFromRSS('http://g1.globo.com/dynamo/tecnologia/rss2.xml');
       }else
 
       if(message.indexOf(sports) > -1) {
         pos = 7;
-        title = "As útlimas notícia sobre esportes:  ";
+        title = "Estas são as últimas notícias sobre esportes ";
         parseFromRSS('http://globoesporte.globo.com/servico/semantica/editorias/plantao/feed.rss');
       }else
 
       if(message.indexOf(sp) > -1) {
-        title = "As útlimas notícia sobre São Paulo:  ";
+        title = "these are the latest news for Sao Paulo: ";
         parseFromRSS('http://g1.globo.com/dynamo/sao-paulo/rss2.xml');
       }else
 
       if(message.indexOf(rj) > -1) {
-        title = "tAs útlimas notícia sobre Rio de Janeiro:  ";
+        title = "these are the latest news for Rio  de Janeiro: ";
         parseFromRSS('http://g1.globo.com/dynamo/rio-de-janeiro/rss2.xml');
       }else
 
       if(message.indexOf(rs) > -1) {
-        title = "As útlimas notícia sobre Rio Grande do Sul:  ";
+        title = "these are the latest news for Rio Grande do Sul: ";
         parseFromRSS('http://g1.globo.com/dynamo/rs/rio-grande-do-sul/rss2.xml');
       }else
 
       if(message.indexOf(news) > -1) {
         pos = 0;
-        title = "Estas são as últimas notícias: ";
+        title = "these are the latest news: ";
         parseFromRSS('http://g1.globo.com/dynamo/rss2.xml');
       }else{
-        sendResponse("<speak>Me desculpe, não posso ajudar com isto. Mas você me perguntar sobre as últimas notícias ou sobre esportes.</speak>");
+        sendResponse("<speak>Desculpe, não entendi, pode repetir?.</speak>");
       }
     }
 
@@ -149,7 +148,7 @@ restService.post('/echo', function(req, res) {
       parser.parseURL(url, function(err, parsed) {
         var speechNews = "";
         for(var i = 0; i < 4;i++){
-        speechNews = parsed.feed.entries[i].title + ".\n\n" + speechNews;
+        speechNews = parsed.feed.entries[i].title + ".\n" + speechNews;
         }
         sendResponse("<speak>" + title + "<break time='1s'/>" + speechNews + "</speak>");
       });
