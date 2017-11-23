@@ -19,23 +19,20 @@ restService.post('/echo', function(req, res) {
   var song = "talk";
   var ubilab = "ubilab";
   var title = " ";
-  var next = "próximo";
-  var next2 = "próxima";
-  var back = "voltar";
+  var next = "next";
+  var back = "back";
   //news sections
 
-  var news = "noticias";
-  var news2 = "noticia";
-  var science = "ciência";
-  var economy = "economia";
-  var education = "educação";
-  var world = "mundo";
-  var music = "musica";
-  var politics = "política";
-  var technology = "tecnologia";
-  var sports = "esportes";
-  var headlines = "últimas";
-  var headlines = "última";
+  var news = "news";
+  var science = "science";
+  var economy = "economy";
+  var education = "education";
+  var world = "world";
+  var music = "music";
+  var politics = "politics";
+  var technology = "technology";
+  var sports = "sports";
+  var headlines = "headlines";
   //regions
   var sp = "sao paulo";
   var rj = "rio de janeiro";
@@ -61,7 +58,6 @@ restService.post('/echo', function(req, res) {
       if(pos == 0){
         pos = 7
       } else pos--;
-
       setMessage(newsArr[pos]);
     }else
 
