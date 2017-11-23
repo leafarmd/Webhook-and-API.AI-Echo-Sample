@@ -21,7 +21,7 @@ restService.post('/echo', function(req, res) {
   var title = " ";
   var next = "próximo";
   var next2 = "próxima";
-  var back = "voltar";
+  var back = "anterior";
   //news sections
 
   var news = "notícias";
