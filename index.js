@@ -105,7 +105,7 @@ restService.post('/echo', function(req, res) {
 
       if(message.indexOf(politics) > -1) {
         pos = 5;
-        title = "these are the latest news sobre política: ";
+        title = "As útlimas notícia sobre política: ";
         parseFromRSS('http://g1.globo.com/dynamo/politica/mensalao/rss2.xml');
       }else
 
@@ -152,7 +152,7 @@ restService.post('/echo', function(req, res) {
       parser.parseURL(url, function(err, parsed) {
         var speechNews = "";
         for(var i = 0; i < 4;i++){
-        speechNews = parsed.feed.entries[i].title + ".\n" + speechNews;
+        speechNews = parsed.feed.entries[i].title + ".\n\n" + speechNews;
         }
         sendResponse("<speak>" + title + "<break time='1s'/>" + speechNews + "</speak>");
       });
