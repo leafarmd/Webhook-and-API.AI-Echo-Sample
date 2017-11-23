@@ -134,7 +134,7 @@ restService.post('/echo', function(req, res) {
 
       if(message.indexOf(news) > -1) {
         pos = 0;
-        title = "these are the latest news: ";
+        title = "Estas são as últimas notícias: ";
         parseFromRSS('http://g1.globo.com/dynamo/rss2.xml');
       }else{
         sendResponse("<speak>Desculpe, não entendi, pode repetir?.</speak>");
