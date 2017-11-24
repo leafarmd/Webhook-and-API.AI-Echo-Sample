@@ -19,20 +19,20 @@ restService.post('/echo', function(req, res) {
   var song = "talk";
   var ubilab = "ubilab";
   var title = " ";
-  var next = "próxima";
-  var back = "anterior";
+  var next = "next";
+  var back = "back";
   //news sections
 
-  var news = "notícias";
-  var science = "ciência";
-  var economy = "ecônomia";
-  var education = "educação";
-  var world = "mundo";
-  var music = "música";
-  var politics = "política";
-  var technology = "tecnologia";
-  var sports = "esportes";
-  var headlines = "manchete";
+  var news = "news";
+  var science = "science";
+  var economy = "economy";
+  var education = "education";
+  var world = "world";
+  var music = "music";
+  var politics = "politics";
+  var technology = "technology";
+  var sports = "sports";
+  var headlines = "headlines";
   //regions
   var sp = "sao paulo";
   var rj = "rio de janeiro";
@@ -66,7 +66,7 @@ restService.post('/echo', function(req, res) {
     }else
 
     if(message.indexOf(headlines) > -1) {
-      sendResponse('<speak> Iniciando manchete <audio src="https://leafarmd.000webhostapp.com/news2.mp3"></audio></speak>')
+      sendResponse('<speak> playing audio news <audio src="https://leafarmd.000webhostapp.com/news2.mp3"></audio></speak>')
     }else{
       setMessage(message);
     }
@@ -77,43 +77,43 @@ restService.post('/echo', function(req, res) {
     function setMessage(message){
       if(message.indexOf(economy) > -1) {
         pos = 2;
-        title = "Estas são as últimas notícias sobre economia: ";
+        title = "these are the latest news for economy: ";
         parseFromRSS('http://g1.globo.com/dynamo/economia/rss2.xml');
       }else
 
       if(message.indexOf(education) > -1) {
         pos = 3
-        title = "Estas são as últimas notícias sobre educação: ";
+        title = "these are the latest news for education: ";
         parseFromRSS('http://g1.globo.com/dynamo/educacao/rss2.xml');
       }else
 
       if(message.indexOf(music) > -1) {
         pos = 4;
-        title = "Estas são as últimas notícias sobre musica: ";
+        title = "these are the latest news for music: ";
         parseFromRSS('http://g1.globo.com/dynamo/musica/rss2.xml');
       }else
 
       if(message.indexOf(science) > -1) {
         pos = 1;
-        title = "tEstas são as últimas notícias sobre ciência: ";
+        title = "these are the latest news for science: ";
         parseFromRSS('http://g1.globo.com/dynamo/ciencia-e-saude/rss2.xml');
       }else
 
       if(message.indexOf(politics) > -1) {
         pos = 5;
-        title = "Estas são as últimas notícias sobre política: ";
+        title = "these are the latest news for politics: ";
         parseFromRSS('http://g1.globo.com/dynamo/politica/mensalao/rss2.xml');
       }else
 
       if(message.indexOf(technology) > -1) {
         pos = 6;
-        title = "Estas são as últimas notícias sobre tecnologia: ";
+        title = "these are the latest news for technology: ";
         parseFromRSS('http://g1.globo.com/dynamo/tecnologia/rss2.xml');
       }else
 
       if(message.indexOf(sports) > -1) {
         pos = 7;
-        title = "Estas são as últimas notícias sobre esportes ";
+        title = "these are the latest news for sports ";
         parseFromRSS('http://globoesporte.globo.com/servico/semantica/editorias/plantao/feed.rss');
       }else
 
@@ -134,10 +134,10 @@ restService.post('/echo', function(req, res) {
 
       if(message.indexOf(news) > -1) {
         pos = 0;
-        title = "Estas são as últimas notícias: ";
+        title = "these are the latest news: ";
         parseFromRSS('http://g1.globo.com/dynamo/rss2.xml');
       }else{
-        sendResponse("<speak>Desculpe, não entendi, pode repetir?.</speak>");
+        sendResponse("<speak>sorry, i can't help you with that, but you can ask me the news or about sports.</speak>");
       }
     }
 
